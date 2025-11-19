@@ -3,6 +3,7 @@ import '@css/App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const test : any = "Hello!"
   return (
     <>
       <h1>Vite + React</h1>
