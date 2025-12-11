@@ -1,12 +1,38 @@
-function NavBar({ selection }: { selection: string }) {
+import { NavLink } from "react-router";
+//import { useState, useEffect, useRef } from "react";
 
-    return(
-        <nav className="nav">
-            <a className={selection == "home" ? "nav-option nav-option--selection" : "nav-option"}></a>
-            <a className={selection == "gallery" ? "nav-option nav-option--selection" : "nav-option"}></a>
-            <a className={selection == "about me" ? "nav-option nav-option--selection" : "nav-option"}></a>
+export function NavBar() {
+
+  // const navRef<HTMLN
+  // const [currentPage, setCurrentPage] = useState<string>("home");
+
+  // useEffect(() => {
+
+  // })
+
+  return (
+    <div className="bg-neutral-100">
+      <header
+        className="flex flex-row justify-between items-center
+        px-4 max-w-[1264px]
+        xl:mx-auto"
+      >
+        <h1 className="text-4xl">Paige Cook</h1>
+        <nav className="flex flex-row gap-4">
+          <NavLink
+            className={({ isActive }) => isActive ? "nav-option nav-option--selected" : "nav-option"}
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => isActive ? "nav-option nav-option--selected" : "nav-option"}
+            to="/gallery"
+          >
+            Gallery
+          </NavLink>
         </nav>
-    )
+      </header>
+    </div>
+  );
 }
-
-export default NavBar

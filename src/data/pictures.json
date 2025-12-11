@@ -1,0 +1,129 @@
+[
+    {
+        "id": 1,
+        "name": "Extraordinary Woman",
+        "imgSrc": "black_woman.JPG",
+        "genre": [
+            "people"
+        ],
+        "materials": "color pencil"
+    },
+    {
+        "id": 2,
+        "name": "Sail Boat",
+        "imgSrc": "boat.JPG",
+        "date": {
+            "year": 2017,
+            "month": 1,
+            "day": 1
+        },
+        "materials": "Acrylic on Canvas",
+        "genre": [
+            "realism",
+            "landscape"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Glass Mickey Mouse",
+        "imgSrc": "bubble_mickey.JPG",
+        "genre": [
+            "cartoon"
+        ],
+        "materials": "watercolor"
+    },
+    {
+        "id": 4,
+        "name": "Winter Rose",
+        "imgSrc": "rose.JPG",
+        "genre": [
+            "realism",
+            "nature"
+        ],
+        "materials": "watercolor"
+    },
+    {
+        "id": 5,
+        "name": "Cook's Clock",
+        "imgSrc": "cook_cafe_clock.JPG",
+        "genre": [
+            "realism"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Eight of Clubs",
+        "imgSrc": "crazy_8.JPG",
+        "genre": [
+            "fantasy"
+        ],
+        "materials": "mixed media"
+    },
+    {
+        "id": 7,
+        "name": "Wedding Painting",
+        "imgSrc": "erin_travis_wedding.JPG",
+        "genre": [
+            "realism",
+            "people"
+        ],
+        "materials": "acrylic paint"
+    },
+    {
+        "id": 8,
+        "name": "Face study",
+        "imgSrc": "gold_woman.JPG",
+        "genre": [
+            "realism",
+            "people"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Lifes a Dream",
+        "imgSrc": "lifes_a_dream.JPG",
+        "genre": [
+            "realism",
+            "landscape"
+        ],
+        "materials": "color pencil"
+    },
+    {
+        "id": 10,
+        "name": "Pink Panther Disco",
+        "imgSrc": "pink_panther.JPG",
+        "genre": [
+            "cartoon"
+        ],
+        "materials": "digital"
+    },
+    {
+        "id": 11,
+        "name": "Food Study",
+        "imgSrc": "spaghetti.JPG",
+        "genre": [
+            "realism"
+        ],
+        "materials": "color pencil"
+    },
+    {
+        "id": 12,
+        "name": "Winter Wonderland",
+        "imgSrc": "white_christmas.JPG",
+        "genre": [
+            "realism",
+            "landscape"
+        ],
+        "materials": "Acrylic paint"
+    },
+    {
+        "id": 13,
+        "name": "Tetherlight",
+        "imgSrc": "tether_light_cover.JPG",
+        "genre": [
+            "fantasy",
+            "people"
+        ],
+        "materials": "Colored pencil"
+    }
+]

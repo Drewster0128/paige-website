@@ -1,24 +1,42 @@
-import { useState } from 'react'
-import '@css/App.css'
+//import { useState } from "react";
+import "@css/App.css";
+import { Home, Gallery, ImagePage } from "./pages";
+import { BrowserRouter, Routes, Route } from "react-router";
+import { NavBar } from "./components";
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0);
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="h-fit">
+      <BrowserRouter>
+        <main
+          className="flex flex-col bg-neutral-950
+          min-h-lvh"
+        >
+          <NavBar />
+          <div className="flex">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Home
+                    className="min-h-full
+              px-4 max-w-[1264px]
+              xl:mx-auto"
+                  />
+                }
+              />
+              <Route
+                path="/gallery"
+                element={<Gallery className="min-h-full grow px-4 max-w-[1264px] xl:mx-auto" />}
+              />
+              <Route path="/images/:id" element={<ImagePage />} />
+            </Routes>
+          </div>
+        </main>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;
