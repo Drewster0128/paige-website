@@ -10,7 +10,7 @@ export function Gallery({
 }): React.JSX.Element {
   
   const pictures: PictureObject[] = PictureObject.loadPictures(
-    ...Array.from({ length: 13 }, (_, index: number) => index + 1)
+    ...Array.from({ length: 19 }, (_, index: number) => index + 1)
   );
 
   const genreRef : React.RefObject<HTMLSelectElement | null> = useRef(null);
@@ -55,6 +55,7 @@ export function Gallery({
               <option value="fantasy">fantasy</option>
               <option value="landscape">landscape</option>
               <option value="nature">nature</option>
+              <option value="christmas">christmas</option>
             </select>
           </div>
           <button className="searchbutton bg-neutral-950">

@@ -112,7 +112,8 @@
         "imgSrc": "white_christmas.JPG",
         "genre": [
             "realism",
-            "landscape"
+            "landscape",
+            "christmas"
         ],
         "materials": "Acrylic paint"
     },
@@ -125,5 +126,63 @@
             "people"
         ],
         "materials": "Colored pencil"
+    },
+    {
+        "id": 14,
+        "name": "Heat Miser Ornament",
+        "imgSrc": "heat_miser.JPG",
+        "genre": [
+            "cartoon",
+            "fantasy",
+            "christmas"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Snow Miser Ornament",
+        "imgSrc": "snow_miser.JPG",
+        "genre": [
+            "cartoon",
+            "fantasy",
+            "christmas"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Frosty the Snowman Ornament",
+        "imgSrc": "frosty.JPG",
+        "genre": [
+            "cartoon",
+            "fantasy",
+            "christmas"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "The Grinch Ornament",
+        "imgSrc": "grinch.JPG",
+        "genre": [
+            "cartoon",
+            "fantasy",
+            "christmas"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Rudolph Ornament",
+        "imgSrc": "rudolph.JPG",
+        "genre": [
+            "cartoon",
+            "fantasy",
+            "christmas"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Children's Dreams",
+        "imgSrc": "childrens_dreams.JPG",
+        "genre": [
+            "cartoon"
+        ]
     }
 ]
