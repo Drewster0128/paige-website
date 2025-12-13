@@ -65,7 +65,7 @@ export function Gallery({
       </div>
       <article className="grid grid-cols-4 gap-4 shrink-0">
         {filterByGenre(searchFilter(pictures, searchTerm), genre).map((picture : PictureObject) => (
-          <PictureBlock picture={picture} aspectRatio="4x3"></PictureBlock>
+          <PictureBlock picture={picture} aspectRatio="4x3" className="relative hover:bottom-2"></PictureBlock>
         ))}
       </article>
     </section>
