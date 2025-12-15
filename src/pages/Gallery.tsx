@@ -10,7 +10,7 @@ export function Gallery({
 }): React.JSX.Element {
   
   const pictures: PictureObject[] = PictureObject.loadPictures(
-    ...Array.from({ length: 24 }, (_, index: number) => index + 1)
+    ...Array.from({ length: PictureObject.getNumberofPictures() }, (_, index: number) => index + 1)
   );
 
   const genreRef : React.RefObject<HTMLSelectElement | null> = useRef(null);
@@ -64,7 +64,7 @@ export function Gallery({
         </div>
       </div>
       <article className="grid grid-cols-4 gap-4 shrink-0">
-        {filterByGenre(searchFilter(pictures, searchTerm), genre).map((picture : PictureObject) => (
+        {filterByGenre(searchFilter(pictures, searchTerm), genre).reverse().map((picture : PictureObject) => (
           <PictureBlock picture={picture} aspectRatio="4x3" className="relative hover:bottom-2"></PictureBlock>
         ))}
       </article>
