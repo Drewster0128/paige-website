@@ -10,7 +10,7 @@ export function Gallery({
 }): React.JSX.Element {
   
   const pictures: PictureObject[] = PictureObject.loadPictures(
-    ...Array.from({ length: 20 }, (_, index: number) => index + 1)
+    ...Array.from({ length: 24 }, (_, index: number) => index + 1)
   );
 
   const genreRef : React.RefObject<HTMLSelectElement | null> = useRef(null);

@@ -193,5 +193,41 @@
             "people",
             "christmas"
         ]
+    },
+    {
+        "id": 21,
+        "name": "Eeyore Ornament",
+        "imgSrc": "eeyore.JPG",
+        "genre": [
+            "cartoon",
+            "christmas"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Piglet Ornament",
+        "imgSrc": "piglet.JPG",
+        "genre": [
+            "cartoon",
+            "christmas"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Winnie the Pooh Ornament",
+        "imgSrc": "pooh.JPG",
+        "genre": [
+            "cartoon",
+            "christmas"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Tigger Ornament",
+        "imgSrc": "tigger.JPG",
+        "genre": [
+            "cartoon",
+            "christmas"
+        ]
     }
 ]
