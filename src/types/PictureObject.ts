@@ -31,6 +31,11 @@ export class PictureObject implements PictureInterface {
     }
   }
 
+  static getNumberofPictures() : number
+  {
+    return data.length;
+  }
+
   id : number;
   name: string;
   imgSrc: string;
