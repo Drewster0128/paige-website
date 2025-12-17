@@ -229,5 +229,14 @@
             "cartoon",
             "christmas"
         ]
+    },
+    {
+        "id": 25,
+        "name": "Totoro Mural",
+        "imgSrc": "totoro_mural.JPG",
+        "genre": [
+            "fantasy",
+            "cartoon"
+        ]
     }
 ]
