@@ -28,7 +28,7 @@ function App() {
               />
               <Route
                 path="/gallery"
-                element={<Gallery className="min-h-full grow px-4 max-w-[1264px] xl:mx-auto" />}
+                element={<Gallery className="min-h-full grow px-4 w-full max-w-[1264] xl:mx-auto" />}
               />
               <Route path="/images/:id" element={<ImagePage />} />
             </Routes>
