@@ -8,8 +8,8 @@ export function ImagePage() : React.JSX.Element {
   console.log(image.genre);
   return(
     <section className="image-page min-h-full grow px-4 max-w-[1264px] xl:mx-auto flex flex-col-reverse justify-between lg:flex-row gap-x-4 pt-4">
-      <div className="max-w-4/5 self-center max-h-screen lg:self-baseline">
-        <img src={`../img/full/${image.imgSrc}`}></img>
+      <div className="max-w-4/5 self-center lg:self-baseline">
+        <img className="max-h-screen" src={`../img/full/${image.imgSrc}`}></img>
       </div>
       <div className="details text-end flex flex-col grow">
         <h1 className="text-neutral-100 text-5xl text-center">{image.name}</h1>
