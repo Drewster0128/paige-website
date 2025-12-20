@@ -17,8 +17,8 @@ export function NavBar() {
         px-4 max-w-[1264px]
         xl:mx-auto"
       >
-        <h1 className="text-4xl">Paige Cook</h1>
-        {/* <h1 className="text-4xl">Psychedelic Queen Artistry</h1> */}
+        <h1 className="hidden text-xl sm:block md:text-3xl lg:text-4xl">Paige Cook</h1>
+        <h1 className="text-xl md:text-3xl lg:text-4xl">Psychedelic Queen Artistry</h1>
         <nav className="flex flex-row gap-4">
           <NavLink
             className={({ isActive }) => isActive ? "nav-option nav-option--selected" : "nav-option"}
