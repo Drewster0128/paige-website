@@ -3,11 +3,7 @@ import { PictureBlock } from "../components";
 import { filterByGenre, searchFilter } from "../utils";
 import { useState, useRef, useEffect } from "react";
 
-export function Gallery({
-  className,
-}: {
-  className?: string;
-}): React.JSX.Element {
+export function Gallery(): React.JSX.Element {
   
   const pictures: PictureObject[] = PictureObject.loadPictures(
     ...Array.from({ length: PictureObject.getNumberofPictures() }, (_, index: number) => index + 1)
@@ -30,7 +26,7 @@ export function Gallery({
   })
 
   return (
-    <section className={`${className} flex flex-col gap-y-4 pb-4`}>
+    <>
       <div
         className={`w-full h-[60lvh] bg-[url(/img/16x9/boat.JPG)] bg-center bg-cover flex justify-center items-center shrink-0`}
       >
@@ -68,6 +64,6 @@ export function Gallery({
           <PictureBlock picture={picture} aspectRatio="4x3" className="relative hover:bottom-2"></PictureBlock>
         ))}
       </article>
-    </section>
+    </>
   );
 }

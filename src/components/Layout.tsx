@@ -8,7 +8,9 @@ export function Layout() : React.JSX.Element {
         <NavBar />
       </header>
       <main>
-        <Outlet />
+        <section className="page-layout">
+          <Outlet />
+        </section>
       </main>
     </body>
   )

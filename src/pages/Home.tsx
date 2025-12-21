@@ -3,7 +3,7 @@ import { PictureObject } from "../types";
 import { PictureBlock } from "../components";
 //import { useRef, useEffect, useState } from "react";
 
-export function Home({ className }: { className?: string }) {
+export function Home() {
   const homeImage: PictureObject = PictureObject.loadPicture(2);
   const recentImages: PictureObject[] = Array.from(
     { length: 10 },
@@ -11,7 +11,7 @@ export function Home({ className }: { className?: string }) {
   );
 
   return (
-    <section className={`flex flex-col gap-y-4 ${className}`}>
+    <>
       <img
         className="w-full max-h-[60lvh] object-cover object-center"
         src={`img/16x9/${homeImage.imgSrc}`}
@@ -30,6 +30,6 @@ export function Home({ className }: { className?: string }) {
           </ul>
         </div>
       </section>
-    </section>
+    </>
   );
 }

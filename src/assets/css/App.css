@@ -17,16 +17,23 @@
         @apply flex flex-row justify-between items-center;
         @apply w-full;
         @apply max-w-[1264px];
-        @apply xl:mx-auto
+        @apply xl:mx-auto;
     }
 
     main {
-        @apply bg-neutral-950 grow;
+        @apply bg-neutral-950 grow pb-4;
         @apply flex justify-center;
     }
 
     main > * {
         @apply max-w-[1264px];
+    }
+}
+
+@layer components {
+    
+    .page-layout {
+        @apply flex flex-col gap-y-4;
     }
 }
 
