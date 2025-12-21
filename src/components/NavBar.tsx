@@ -3,37 +3,24 @@ import { NavLink } from "react-router";
 
 export function NavBar() {
 
-  // const navRef<HTMLN
-  // const [currentPage, setCurrentPage] = useState<string>("home");
-
-  // useEffect(() => {
-
-  // })
-
   return (
-    <div className="bg-neutral-100">
-      <header
-        className="flex flex-row justify-between items-center
-        px-4 max-w-[1264px]
-        xl:mx-auto"
-      >
-        <h1 className="hidden text-xl sm:block md:text-3xl lg:text-4xl">Paige Cook</h1>
-        <h1 className="text-xl md:text-3xl lg:text-4xl">Psychedelic Queen Artistry</h1>
-        <nav className="flex flex-row gap-4">
-          <NavLink
-            className={({ isActive }) => isActive ? "nav-option nav-option--selected" : "nav-option"}
-            to="/"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => isActive ? "nav-option nav-option--selected" : "nav-option"}
-            to="/gallery"
-          >
-            Gallery
-          </NavLink>
-        </nav>
-      </header>
-    </div>
+    <>
+      <h1 className="hidden sm:block">Paige Cook</h1>
+      <h1 className="text-xl md:text-3xl lg:text-4xl">Psychedelic Queen Artistry</h1>
+      <nav className="flex flex-row gap-4">
+        <NavLink
+          className={({ isActive }) => isActive ? "nav-option nav-option--selected" : "nav-option"}
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => isActive ? "nav-option nav-option--selected" : "nav-option"}
+          to="/gallery"
+        >
+          Gallery
+        </NavLink>
+      </nav>
+    </>
   );
 }

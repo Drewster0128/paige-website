@@ -3,7 +3,7 @@ import { PictureObject } from "../types";
 import { PictureBlock } from "../components";
 //import { useRef, useEffect, useState } from "react";
 
-export function Home({ className }: { className: string }) {
+export function Home({ className }: { className?: string }) {
   const homeImage: PictureObject = PictureObject.loadPicture(2);
   const recentImages: PictureObject[] = Array.from(
     { length: 10 },

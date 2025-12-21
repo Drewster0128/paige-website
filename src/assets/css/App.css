@@ -1,6 +1,35 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 @import "tailwindcss";
 
+@layer base {
+
+    body {
+        @apply bg-neutral-100 min-h-dvh flex flex-col;
+    }
+
+    h1 {
+        @apply text-xl;
+        @apply md:text-3xl;
+        @apply lg:text-4xl;
+    }
+
+    header {
+        @apply flex flex-row justify-between items-center;
+        @apply w-full;
+        @apply max-w-[1264px];
+        @apply xl:mx-auto
+    }
+
+    main {
+        @apply bg-neutral-950 grow;
+        @apply flex justify-center;
+    }
+
+    main > * {
+        @apply max-w-[1264px];
+    }
+}
+
 /* .carosuel {
     animation-duration: 20s;
     animation-name: carousel-scroll;
