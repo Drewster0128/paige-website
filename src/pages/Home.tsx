@@ -1,14 +1,13 @@
 //import { NavBar } from "../components"
 import { PictureObject } from "../types";
-import { PictureBlock } from "../components";
-//import { useRef, useEffect, useState } from "react";
+import { PictureBlock, Carosaul } from "../components";
+import { useGetImages } from "../hooks";
+
+//Functions
 
 export function Home() {
-  const homeImage: PictureObject = PictureObject.loadPicture(2);
-  const recentImages: PictureObject[] = Array.from(
-    { length: 10 },
-    (_, index: number) => PictureObject.loadPicture(index + 1)
-  );
+  const homeImage : PictureObject = PictureObject.loadPicture(2);
+  const recentImages : PictureObject[] = useGetImages(10);
 
   return (
     <>
@@ -33,3 +32,5 @@ export function Home() {
     </>
   );
 }
+
+function Carosaul() : React.JSX.Element

@@ -1,0 +1,1 @@
+export { useGetImages } from "./useGetImages.hook"

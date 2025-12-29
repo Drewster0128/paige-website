@@ -14,3 +14,8 @@ export function searchFilter(pictures: PictureObject[], searchTerm: string) : Pi
     picture.name.substring(0, searchTerm.length).toLowerCase() === searchTerm.toLowerCase()
   ))
 }
+
+export async function getCarosaulData() : Promise<PictureObject[]> {
+  const ret = await (await fetch("../src/data/pictures.json")).json();
+  return ret;
+}
