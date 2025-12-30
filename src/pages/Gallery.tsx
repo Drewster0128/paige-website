@@ -56,6 +56,7 @@ export function Gallery({
               <option value="landscape">landscape</option>
               <option value="nature">nature</option>
               <option value="christmas">christmas</option>
+              <option value="shoes">shoes</option>
             </select>
           </div>
           <button className="searchbutton bg-neutral-950">
