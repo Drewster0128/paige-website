@@ -10,7 +10,7 @@
     },
     {
         "id": 2,
-        "name": "Sail Boat",
+        "name": "Sunset Sail",
         "imgSrc": "boat.JPG",
         "date": {
             "year": 2017,
@@ -25,7 +25,7 @@
     },
     {
         "id": 3,
-        "name": "Glass Mickey Mouse",
+        "name": "Glass Mouse",
         "imgSrc": "bubble_mickey.JPG",
         "genre": [
             "cartoon"
@@ -44,7 +44,7 @@
     },
     {
         "id": 5,
-        "name": "Cook's Clock",
+        "name": "Cafe Time",
         "imgSrc": "cook_cafe_clock.JPG",
         "genre": [
             "realism"
@@ -61,7 +61,7 @@
     },
     {
         "id": 7,
-        "name": "Wedding Painting",
+        "name": "I Do",
         "imgSrc": "erin_travis_wedding.JPG",
         "genre": [
             "realism",
@@ -71,7 +71,7 @@
     },
     {
         "id": 8,
-        "name": "Face study",
+        "name": "Woman in Gold",
         "imgSrc": "gold_woman.JPG",
         "genre": [
             "realism",
@@ -90,7 +90,7 @@
     },
     {
         "id": 10,
-        "name": "Pink Panther Disco",
+        "name": "The Panther",
         "imgSrc": "pink_panther.JPG",
         "genre": [
             "cartoon"
@@ -99,7 +99,7 @@
     },
     {
         "id": 11,
-        "name": "Food Study",
+        "name": "Chop Suey",
         "imgSrc": "spaghetti.JPG",
         "genre": [
             "realism"
@@ -129,7 +129,7 @@
     },
     {
         "id": 14,
-        "name": "Heat Miser Ornament",
+        "name": "Heat Miser Baked Clay Ornament",
         "imgSrc": "heat_miser.JPG",
         "genre": [
             "cartoon",
@@ -139,7 +139,7 @@
     },
     {
         "id": 15,
-        "name": "Snow Miser Ornament",
+        "name": "Snow Miser Baked Clay Ornament",
         "imgSrc": "snow_miser.JPG",
         "genre": [
             "cartoon",
@@ -149,7 +149,7 @@
     },
     {
         "id": 16,
-        "name": "Frosty the Snowman Ornament",
+        "name": "Frosty the Snowman Baked Clay Ornament",
         "imgSrc": "frosty.JPG",
         "genre": [
             "cartoon",
@@ -159,7 +159,7 @@
     },
     {
         "id": 17,
-        "name": "The Grinch Ornament",
+        "name": "The Grinch Baked Clay Ornament",
         "imgSrc": "grinch.JPG",
         "genre": [
             "cartoon",
@@ -169,7 +169,7 @@
     },
     {
         "id": 18,
-        "name": "Rudolph Ornament",
+        "name": "Rudolph Baked Clay Ornament",
         "imgSrc": "rudolph.JPG",
         "genre": [
             "cartoon",
@@ -179,7 +179,7 @@
     },
     {
         "id": 19,
-        "name": "Children's Dreams",
+        "name": "Child's Dream",
         "imgSrc": "childrens_dreams.JPG",
         "genre": [
             "cartoon"
@@ -187,7 +187,7 @@
     },
     {
         "id": 20,
-        "name": "Pepsi Santa",
+        "name": "Pepsi Santa Baked Clay Ornament",
         "imgSrc": "pepsi_santa.JPG",
         "genre": [
             "people",
@@ -196,7 +196,7 @@
     },
     {
         "id": 21,
-        "name": "Eeyore Ornament",
+        "name": "Eeyore Baked Clay Ornament",
         "imgSrc": "eeyore.JPG",
         "genre": [
             "cartoon",
@@ -205,7 +205,7 @@
     },
     {
         "id": 22,
-        "name": "Piglet Ornament",
+        "name": "Piglet Baked Clay Ornament",
         "imgSrc": "piglet.JPG",
         "genre": [
             "cartoon",
@@ -214,7 +214,7 @@
     },
     {
         "id": 23,
-        "name": "Winnie the Pooh Ornament",
+        "name": "Winnie the Pooh Baked Clay Ornament",
         "imgSrc": "pooh.JPG",
         "genre": [
             "cartoon",
@@ -223,7 +223,7 @@
     },
     {
         "id": 24,
-        "name": "Tigger Ornament",
+        "name": "Tigger Baked Clay Ornament",
         "imgSrc": "tigger.JPG",
         "genre": [
             "cartoon",
@@ -241,7 +241,7 @@
     },
     {
         "id": 26,
-        "name": "Crazy Shoes",
+        "name": "Psychedelic High Tops",
         "imgSrc": "shoes.JPG",
         "genre": [
             "shoes"
