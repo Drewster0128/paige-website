@@ -1,21 +1,26 @@
 import { google } from "googleapis"
 import { promises, createWriteStream} from "fs"
-import { Writable } from "stream";
+import { Writable } from "stream"
 
 const auth = new google.auth.GoogleAuth({
     keyFile: process.env.KEYFILE,
     scopes: [process.env.SCOPES]
 });
 
+const sheets = google.sheets({
+    version: 'v4',
+    auth
+});
+
+const drive = google.drive({
+    version: 'v3',
+    auth
+});
+
 
 
 // fetch meta-data from google drive
 async function getMetaData() {
-
-    let sheets = google.sheets({
-        version: 'v4',
-        auth
-    });
 
     let response = await sheets.spreadsheets.values.get({
         spreadsheetId: process.env.SPREADSHEET_ID,
@@ -44,28 +49,44 @@ async function saveMetaData(metadata, filename) {
 }
 
 async function getImagesOnDrive() {
-    let drive = google.drive({
-        version: 'v3',
-        auth
-    });
 
     let response = await drive.files.list({
         q: `'${process.env.WEBSITE_IMAGES_FOLDER_ID}' in parents`
     });
 
     response = response.data.files;
-    
-    //for each file in response, download a blob representation
-    for(let image of response) {
-        let imageBlob = await drive.files.get({
-            fileId: image.id,
-            alt: 'media'
-        });
+    return response;
+}
 
-        let writableStream = Writable.toWeb(createWriteStream(`public/img/website_images/${image.name}`));
-        imageBlob.data.stream().pipeTo(writableStream);
+async function updateImages() {
+    
+    let driveImages = await getImagesOnDrive();
+
+    let localImages = await promises.readdir('public/img/website_images');
+    localImages = new Set(localImages);
+
+    for(const driveImage of driveImages) {
+        if(localImages.has(driveImage.name)) {
+            localImages.delete(driveImage.name);
+        }
+        else {
+            // driveImage not in local storage, download into public/img/website_images folder
+            let imageBlob = await drive.files.get({
+                fileId: driveImage.id,
+                alt: 'media'
+            });
+
+            let writableStream = Writable.toWeb(createWriteStream(`public/img/website_images/${driveImage.name}`));
+            imageBlob.data.stream().pipeTo(writableStream);
+        }
+    }
+
+    //names remaining in localImages list should be removed
+    for(const localImage of localImages) {
+        await promises.unlink(`public/img/website_images/${localImage}`);
     }
 }
 
 //getMetaData()
-getImagesOnDrive()
+//getImagesOnDrive()
+//updateImages()
