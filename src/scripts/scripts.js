@@ -3,8 +3,8 @@ import { promises, createWriteStream} from "fs"
 import { Writable } from "stream";
 
 const auth = new google.auth.GoogleAuth({
-    keyFile: 'env/paigewebsite-c02d0030e691.json',
-    scopes: ['https://www.googleapis.com/auth/drive.readonly']
+    keyFile: process.env.KEYFILE,
+    scopes: [process.env.SCOPES]
 });
 
 
