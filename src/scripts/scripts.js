@@ -1,4 +1,5 @@
 import { google } from "googleapis"
+import { promises } from "fs"
 
 const AUTH = new google.auth.GoogleAuth({
     keyFile: process.env.KEYFILE,
@@ -31,4 +32,9 @@ async function getMetaData() {
 
     let jsonObject = JSON.stringify(temp);
     return jsonObject;
+}
+
+// saves metadata into json file
+async function saveMetaData(metadata, filename) {
+    await promises.writeFile(filename, metadata, 'utf8');
 }
