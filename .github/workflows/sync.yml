@@ -27,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Export secret to json
-        run: echo ${{ secrets.SERVICE_ACCOUNT}} > env/paigewebsite-c02d0030e691.json
+        run: echo '${{ secrets.SERVICE_ACCOUNT}}' > env/paigewebsite-c02d0030e691.json
 
       - name: sync-data
         run: npm run sync
