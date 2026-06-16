@@ -4,7 +4,10 @@ import { Writable } from "stream"
 
 const auth = new google.auth.GoogleAuth({
     keyFile: process.env.KEYFILE,
-    scopes: [process.env.SCOPES]
+    scopes: [
+        "https://www.googleapis.com/auth/spreadsheets.readonly",
+        "https://www.googleapis.com/auth/drive.readonly"
+    ]
 });
 
 const sheets = google.sheets({
