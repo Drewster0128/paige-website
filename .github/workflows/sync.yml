@@ -1,0 +1,30 @@
+name: Sync Artwork
+
+on: 
+  push:
+    branches: 
+      - github-action-workflow-to-sync-with-google-drive
+
+env:
+  SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+  KEYFILE: ${{ secrets.KEYFILE }}
+  SCOPES: ${{ secrets.SCOPES }}
+  WEBSITE_IMAGES_FOLDER_ID: ${{ secrets.WEBSITE_IMAGES_FOLDER_ID }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: sync-data
+        run: npm run sync
