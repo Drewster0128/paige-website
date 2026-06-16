@@ -85,7 +85,8 @@ async function updateImages() {
     }
 }
 
+console.log("hi!");
 let metaData = await getMetaData();
 await saveMetaData(metaData, "src/data/pictures.json");
 
-await updateImages()
+await updateImages();
