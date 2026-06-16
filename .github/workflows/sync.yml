@@ -10,6 +10,7 @@ env:
   KEYFILE: ${{ secrets.KEYFILE }}
   SCOPES: ${{ secrets.SCOPES }}
   WEBSITE_IMAGES_FOLDER_ID: ${{ secrets.WEBSITE_IMAGES_FOLDER_ID }}
+  SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
 
 jobs:
   sync:
@@ -30,7 +31,7 @@ jobs:
         run: mkdir env
 
       - name: Export secret to json
-        run: printf '${{ secrets.SERVICE_ACCOUNT }}' > env/paigewebsite-c02d0030e691.json
+        run: printf '${{ env.SERVICE_ACCOUNT }}' > env/paigewebsite-c02d0030e691.json
 
       - name: sync-data
         run: npm run sync
