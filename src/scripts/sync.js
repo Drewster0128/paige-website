@@ -17,8 +17,6 @@ const drive = google.drive({
     auth
 });
 
-
-
 // fetch meta-data from google drive
 async function getMetaData() {
 
@@ -87,6 +85,7 @@ async function updateImages() {
     }
 }
 
-//getMetaData()
-//getImagesOnDrive()
-//updateImages()
+let metaData = await getMetaData();
+await saveMetaData(metaData, "src/data/pictures.json");
+
+await updateImages()
