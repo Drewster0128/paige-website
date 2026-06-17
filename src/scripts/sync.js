@@ -1,6 +1,7 @@
 import { google } from "googleapis"
-import { promises, createWriteStream} from "fs"
+import { promises, createWriteStream, existsSync} from "fs"
 import { Writable } from "stream"
+import { mkdir } from "fs/promises";
 
 const auth = new google.auth.GoogleAuth({
     keyFile: process.env.KEYFILE,
@@ -63,6 +64,11 @@ async function updateImages() {
     
     let driveImages = await getImagesOnDrive();
 
+    //check if website_images folder exists
+    if(!existsSync('public/img/website_images')) {
+        await mkdir('public/img/website_images');
+    }
+    
     let localImages = await promises.readdir('public/img/website_images');
     localImages = new Set(localImages);
 
