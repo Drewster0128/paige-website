@@ -15,6 +15,11 @@ env:
 jobs:
   sync:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -37,3 +42,8 @@ jobs:
 
       - name: sync-data
         run: npm run sync
+
+      - name: commit updated metadata
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "Sync with google drive"
