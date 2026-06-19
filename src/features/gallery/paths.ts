@@ -1,4 +1,5 @@
 import type { GalleryItem } from "./types";
+import { slugifyMedium } from "./gallery";
 
 const GALLERY_ROOT = "/gallery";
 
@@ -12,4 +13,8 @@ export function getThumbnailUrl(item: GalleryItem): string {
 
 export function getImagePageUrl(item: GalleryItem): string {
   return `/images/${item.slug}`;
+}
+
+export function getGalleryMediumUrl(medium: string): string {
+  return `${GALLERY_ROOT}?medium=${encodeURIComponent(slugifyMedium(medium))}`;
 }

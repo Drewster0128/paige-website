@@ -6,27 +6,64 @@ import {
   PrivacyPolicy,
   TermsOfService,
 } from "./pages";
+import { useEffect } from "react";
 import { EventsPage } from "./features/events";
 import { GalleryPage, ImagePage } from "./features/gallery";
-import { BrowserRouter, Navigate, Routes, Route } from "react-router";
+import {
+  BrowserRouter,
+  Navigate,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router";
 import { Footer, NavBar } from "./components";
+
+function ScrollToRouteStart() {
+  const { hash, pathname, search, state } = useLocation();
+  const shouldPreserveScroll =
+    typeof state === "object" &&
+    state !== null &&
+    "preserveScroll" in state &&
+    state.preserveScroll === true;
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  useEffect(() => {
+    if (shouldPreserveScroll) {
+      return;
+    }
+
+    if (pathname === "/contact" && hash === "#inquiry-form") {
+      window.requestAnimationFrame(() => {
+        document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();
+      });
+      return;
+    }
+
+    window.scrollTo(0, 0);
+  }, [hash, pathname, search, shouldPreserveScroll]);
+
+  return null;
+}
 
 function App() {
   return (
     <div className="h-fit">
       <BrowserRouter>
-        <main className="flex min-h-lvh flex-col bg-[var(--ink)]">
+        <ScrollToRouteStart />
+        <main className="flex min-h-lvh flex-col bg-[var(--cream)]">
           <NavBar />
           <div className="flex grow">
             <Routes>
               <Route
                 path="/"
-                element={<Navigate replace to="/home" />}
-              />
-              <Route
-                path="/home"
                 element={<Home className="min-h-full" />}
               />
+              <Route path="/home" element={<Navigate replace to="/" />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/events" element={<EventsPage />} />
@@ -42,7 +79,7 @@ function App() {
               <Route
                 path="*"
                 element={
-                  <section className="mx-auto px-4 py-16 text-center text-[var(--cream)]">
+                  <section className="mx-auto px-4 py-16 text-center text-[var(--ink)]">
                     <h1 className="text-4xl">Page not found</h1>
                   </section>
                 }

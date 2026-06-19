@@ -1,10 +1,25 @@
 import { Navigate, NavLink, useParams } from "react-router";
 import { resolveGalleryItem } from "../gallery";
 import { getFullImageUrl, getImagePageUrl } from "../paths";
+import { usePageMetadata } from "../../../pages/usePageMetadata";
 
 export function ImagePage(): React.JSX.Element {
   const { identifier } = useParams();
   const resolution = resolveGalleryItem(identifier);
+  const metadataItem = resolution?.item;
+
+  usePageMetadata({
+    title: metadataItem
+      ? `${metadataItem.artPiece} | Artwork by Paige Cook | Psychedelic Queen Artistry`
+      : "Artwork Not Found | Psychedelic Queen Artistry",
+    description: metadataItem
+      ? `${metadataItem.description} View details, availability, original size, print sizes, and inquiry options for this Paige Cook artwork.`
+      : "The requested Psychedelic Queen Artistry artwork could not be found. Browse Paige Cook's gallery for available originals, prints, and custom artwork.",
+    canonicalPath: metadataItem ? getImagePageUrl(metadataItem) : "/gallery",
+    image: metadataItem ? getFullImageUrl(metadataItem) : "/site/home/hero.webp",
+    imageAlt: metadataItem?.altText,
+    type: metadataItem ? "article" : "website",
+  });
 
   if (!resolution) {
     return (
@@ -33,7 +48,6 @@ export function ImagePage(): React.JSX.Element {
     { label: "Date created", value: item.dateCreated },
     { label: "Genres", value: item.genres.join(", ") },
     { label: "Material", value: item.material },
-    { label: "Orientation", value: item.orientation },
   ].filter((row): row is { label: string; value: string } => Boolean(row.value));
 
   return (
@@ -42,7 +56,7 @@ export function ImagePage(): React.JSX.Element {
         <div className="w-full min-w-0 max-w-[calc(100vw-2.5rem)] self-center lg:w-auto lg:max-w-[80%] lg:self-start">
           <img
             alt={item.altText}
-            className="max-h-screen w-full bg-[var(--charcoal)] object-contain"
+            className="max-h-screen w-full bg-[var(--cream)] object-contain"
             src={getFullImageUrl(item)}
           />
         </div>
@@ -80,8 +94,9 @@ export function ImagePage(): React.JSX.Element {
             </dl>
           )}
           {item.provisional && (
-            <p className="text-sm text-[var(--charcoal)]/60">
-              Provisional project information
+            <p className="border-l-4 border-[var(--moss)]/45 pl-4 text-sm leading-relaxed text-[var(--charcoal)]/65">
+              Provisional details. Final sizing, pricing, and availability may
+              be adjusted before purchase.
             </p>
           )}
         </div>

@@ -3,31 +3,40 @@ import type { Event } from "../types";
 
 export function EventCard({ event }: { event: Event }): React.JSX.Element {
   return (
-    <article className="flex flex-col gap-3 border border-[var(--charcoal)] p-6">
+    <article className="grid gap-6 border-t border-[var(--charcoal)] pt-6 sm:grid-cols-[12rem_1fr]">
       <div>
-        <p className="text-sm uppercase tracking-wide text-[var(--acid)]">
+        <p className="home-kicker text-[var(--moss)]">
           {formatEventDate(event)}
         </p>
-        <h2 className="text-2xl">{event.title}</h2>
       </div>
 
-      <div>
-        <p>{event.venue}</p>
-        <p className="text-[var(--cream)]/65">{event.location}</p>
+      <div className="flex flex-col gap-4">
+        <div>
+          <h2 className="font-serif text-3xl text-[var(--ink)]">
+            {event.title}
+          </h2>
+          <p className="mt-2 text-[var(--charcoal)]/75">
+            {event.venue} - {event.location}
+          </p>
+        </div>
+
+        {event.description && (
+          <p className="max-w-2xl leading-relaxed text-[var(--charcoal)]/80">
+            {event.description}
+          </p>
+        )}
+
+        {event.url && (
+          <a
+            className="home-text-link w-fit text-[var(--moss)]"
+            href={event.url}
+            rel="noreferrer"
+            target="_blank"
+          >
+            Event details <span aria-hidden="true">-&gt;</span>
+          </a>
+        )}
       </div>
-
-      {event.description && <p>{event.description}</p>}
-
-      {event.url && (
-        <a
-          className="w-fit underline"
-          href={event.url}
-          rel="noreferrer"
-          target="_blank"
-        >
-          Event details
-        </a>
-      )}
     </article>
   );
 }

@@ -1,5 +1,3 @@
-export type GalleryOrientation = "landscape" | "portrait" | "square";
-
 export interface GalleryItem {
   legacyId: number;
   slug: string;
@@ -13,7 +11,6 @@ export interface GalleryItem {
   genres: string[];
   medium: string;
   material: string | null;
-  orientation: GalleryOrientation;
   availability: string | null;
   altText: string;
   featured: boolean;

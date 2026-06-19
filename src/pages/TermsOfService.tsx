@@ -5,7 +5,7 @@ export function TermsOfService(): React.JSX.Element {
   return (
     <PageLayout title="Terms of Service">
       <div className="flex flex-col gap-8">
-        <p className="text-sm uppercase tracking-[0.16em] text-[var(--cream)]/60">
+        <p className="text-sm uppercase tracking-[0.16em] text-[var(--charcoal)]/60">
           Last updated June 16, 2026
         </p>
 

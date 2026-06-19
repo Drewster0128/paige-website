@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const SUPPORTED_EXTENSIONS = new Set([".jpeg", ".jpg", ".png", ".tif", ".tiff", ".webp"]);
+const GALLERY_BACKGROUND_COLOR = "#EEE8D8";
 
 export function slugify(value) {
   return value
@@ -30,10 +31,12 @@ export async function processGalleryImage({
   await Promise.all([
     sharp(sourcePath)
       .rotate()
+      .flatten({ background: GALLERY_BACKGROUND_COLOR })
       .webp({ quality: 85 })
       .toFile(path.join(fullDirectory, outputFilename)),
     sharp(thumbnailSourcePath)
       .rotate()
+      .flatten({ background: GALLERY_BACKGROUND_COLOR })
       .resize(800, 600, { fit: "cover", position: "attention" })
       .webp({ quality: 70 })
       .toFile(path.join(thumbnailDirectory, outputFilename)),

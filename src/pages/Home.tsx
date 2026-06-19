@@ -1,11 +1,17 @@
 import { NavLink } from "react-router";
 import {
   getGalleryItems,
-  getImagePageUrl,
+  getGalleryMediumUrl,
   getThumbnailUrl,
   type GalleryItem,
 } from "../features/gallery";
 import { getUpcomingEvents } from "../features/events";
+import { usePageMetadata } from "./usePageMetadata";
+
+const HOME_PAGE_TITLE =
+  "Psychedelic Queen Artistry | Paige Cook | Greater Chicago Artist";
+const HOME_PAGE_DESCRIPTION =
+  "Explore colorful paintings, illustration, sculpture, prints, and custom artwork by Paige Cook, the greater Chicago area artist behind Psychedelic Queen Artistry.";
 
 const MEDIUM_SHOWCASE_SLUGS = [
   "turtle-still-life",
@@ -29,9 +35,9 @@ function MediumShowcaseLink({
   return (
     <NavLink
       className={`group block ${className}`}
-      to={getImagePageUrl(item)}
+      to={getGalleryMediumUrl(item.medium)}
     >
-      <div className="overflow-hidden bg-[var(--charcoal)]">
+      <div className="overflow-hidden bg-[var(--cream)]">
         <img
           alt={item.altText}
           className="aspect-4/3 w-full object-cover transition duration-700 group-hover:scale-[1.03]"
@@ -43,14 +49,14 @@ function MediumShowcaseLink({
         <div>
           <h3 className="font-serif text-2xl">{item.medium}</h3>
           <p className="text-sm text-[var(--charcoal)]/70">
-            {[item.artPiece, item.material].filter(Boolean).join(" · ")}
+            {[item.artPiece, item.material].filter(Boolean).join(" - ")}
           </p>
         </div>
         <span
           aria-hidden="true"
           className="text-xl transition-transform group-hover:translate-x-1"
         >
-          →
+          -&gt;
         </span>
       </div>
     </NavLink>
@@ -58,6 +64,12 @@ function MediumShowcaseLink({
 }
 
 export function Home({ className = "" }: { className?: string }) {
+  usePageMetadata({
+    title: HOME_PAGE_TITLE,
+    description: HOME_PAGE_DESCRIPTION,
+    canonicalPath: "/",
+  });
+
   const galleryItems = getGalleryItems();
   const mediumShowcaseItems = MEDIUM_SHOWCASE_SLUGS.map((slug) =>
     galleryItems.find((item) => item.slug === slug),
@@ -73,15 +85,17 @@ export function Home({ className = "" }: { className?: string }) {
           fetchPriority="high"
           src="/site/home/hero.webp"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(8,10,8,0.96)] via-[rgba(8,10,8,0.24)] to-[rgba(8,10,8,0.08)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(75,99,56,0.94)] via-[rgba(75,99,56,0.28)] to-[rgba(75,99,56,0.08)]" />
 
         <div className="relative mx-auto flex min-h-[calc(100svh-5rem)] max-w-[1440px] flex-col justify-end px-5 pb-10 sm:px-8 sm:pb-14 lg:px-12">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-[var(--cream)]/80">
-            Painter · Illustrator · Maker
+          <p className="home-hero__kicker mb-4 text-[0.94rem] font-semibold uppercase tracking-[0.2em] text-[var(--cream)]/95 sm:text-[1.05rem]">
+            Painter - Illustrator - Maker
           </p>
           <h1 className="max-w-5xl font-serif text-[clamp(3.6rem,10vw,9.5rem)] leading-[0.82] tracking-[-0.055em] text-[var(--cream)]">
-            Color without
-            <span className="block text-[var(--coral)]">permission.</span>
+            <span className="home-hero__title-line block">Color without</span>
+            <span className="home-hero__permission block text-[var(--coral)]">
+              permission.
+            </span>
           </h1>
           <div className="mt-8 flex flex-col items-start justify-between gap-6 border-t border-[var(--cream)]/40 pt-5 sm:flex-row sm:items-end">
             <p className="max-w-xl text-lg leading-relaxed text-[var(--cream)]/85 sm:text-xl">
@@ -93,7 +107,7 @@ export function Home({ className = "" }: { className?: string }) {
               to="/gallery"
             >
               Enter the gallery
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">-&gt;</span>
             </NavLink>
           </div>
         </div>
@@ -132,7 +146,7 @@ export function Home({ className = "" }: { className?: string }) {
           <div className="mt-16 flex justify-center">
             <NavLink className="home-button home-button--moss-fill" to="/gallery">
               View all projects
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">-&gt;</span>
             </NavLink>
           </div>
         </div>
@@ -164,8 +178,8 @@ export function Home({ className = "" }: { className?: string }) {
               result is work with a playful surface and a point of view
               underneath it.
             </p>
-            <NavLink className="home-text-link mt-8" to="/about">
-              Read the story <span aria-hidden="true">→</span>
+            <NavLink className="home-text-link mt-8 underline underline-offset-4" to="/about">
+              Meet the Artist <span aria-hidden="true">-&gt;</span>
             </NavLink>
           </div>
         </div>
@@ -179,7 +193,7 @@ export function Home({ className = "" }: { className?: string }) {
           <div>
             <p className="home-kicker text-[var(--coral)]">In person</p>
             <h2 className="mt-4 max-w-xl font-serif text-[clamp(3.2rem,7vw,7rem)] leading-[0.9] tracking-[-0.045em]">
-              See what’s coming next.
+              See what's coming next.
             </h2>
           </div>
           <div className="flex flex-col justify-between gap-12 border-t border-[var(--charcoal)] pt-6 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
@@ -190,7 +204,7 @@ export function Home({ className = "" }: { className?: string }) {
                 </p>
                 <p className="mt-3 font-serif text-3xl">{events[0].title}</p>
                 <p className="mt-2 text-[var(--charcoal)]/75">
-                  {events[0].venue} · {events[0].location}
+                  {events[0].venue} - {events[0].location}
                 </p>
               </div>
             ) : (
@@ -204,7 +218,7 @@ export function Home({ className = "" }: { className?: string }) {
             )}
             <NavLink className="home-button home-button--dark" to="/events">
               Upcoming events
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">-&gt;</span>
             </NavLink>
           </div>
         </div>
@@ -215,7 +229,7 @@ export function Home({ className = "" }: { className?: string }) {
         id="inquiries"
       >
         <div className="mx-auto max-w-[1360px] text-center">
-          <p className="home-kicker text-[var(--cream)]/70">Commissions · Collaborations · Questions</p>
+          <p className="home-kicker text-[var(--cream)]/70">Commissions - Collaborations - Questions</p>
           <h2 className="mx-auto mt-5 max-w-5xl font-serif text-[clamp(3.4rem,8.5vw,9rem)] leading-[0.88] tracking-[-0.05em]">
             Have an idea worth making loud?
           </h2>
@@ -224,7 +238,7 @@ export function Home({ className = "" }: { className?: string }) {
             to="/contact"
           >
             Start a conversation
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true">-&gt;</span>
           </NavLink>
         </div>
       </section>

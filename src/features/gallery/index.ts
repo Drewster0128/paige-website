@@ -5,9 +5,11 @@ export {
   getGalleryItems,
   getGalleryMediums,
   resolveGalleryItem,
+  slugifyMedium,
 } from "./gallery";
 export {
   getFullImageUrl,
+  getGalleryMediumUrl,
   getImagePageUrl,
   getThumbnailUrl,
 } from "./paths";

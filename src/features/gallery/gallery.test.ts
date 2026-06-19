@@ -5,7 +5,9 @@ import {
   getGalleryItems,
   getGalleryMediums,
   resolveGalleryItem,
+  slugifyMedium,
 } from "./gallery";
+import { getGalleryMediumUrl } from "./paths";
 
 describe("gallery data", () => {
   it("returns all items in display order", () => {
@@ -94,6 +96,11 @@ describe("gallery filters", () => {
       "portrait-study",
       "green-portrait",
     ]);
+  });
+
+  it("builds stable medium filter URLs", () => {
+    expect(slugifyMedium("Mixed media")).toBe("mixed-media");
+    expect(getGalleryMediumUrl("Mixed media")).toBe("/gallery?medium=mixed-media");
   });
 });
 

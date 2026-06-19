@@ -76,7 +76,6 @@ Each record in `src/features/gallery/data/gallery.json` has:
 - `genres`
 - `medium`: broad format/category such as `Canvas`, `Drawing`, or `Digital`
 - `material`: material detail such as `Acrylic`, `Ink`, or `Paint`, or `null`
-- `orientation`: `landscape`, `portrait`, or `square`
 - `availability`: client-facing availability such as `Available`, `Sold`, or `Prints Available`, or `null`
 - `altText`: accessible image description used by gallery images
 - `featured`: whether the artwork is eligible for featured surfaces

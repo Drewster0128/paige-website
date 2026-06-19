@@ -172,7 +172,7 @@ export function resolveGalleryItem(
     : undefined;
 }
 
-function slugifyMedium(medium: string): string {
+export function slugifyMedium(medium: string): string {
   return medium
     .trim()
     .toLocaleLowerCase()

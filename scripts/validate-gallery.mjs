@@ -6,9 +6,16 @@ const metadataPath = "src/features/gallery/data/gallery.json";
 const galleryRoot = "public/gallery";
 const items = JSON.parse(await readFile(metadataPath, "utf8"));
 const errors = [];
+const mojibakePattern = /[\u00C2\u00E2\uFFFD]/;
 
 function findDuplicates(values) {
   return values.filter((value, index) => values.indexOf(value) !== index);
+}
+
+function validatePublicText(label, fieldName, value) {
+  if (typeof value === "string" && mojibakePattern.test(value)) {
+    errors.push(`${label} ${fieldName} contains mojibake characters.`);
+  }
 }
 
 if (!Array.isArray(items) || items.length === 0) {
@@ -69,9 +76,6 @@ for (const [index, item] of items.entries()) {
   if (item.material !== null && typeof item.material !== "string") {
     errors.push(`${label} material must be null or a string.`);
   }
-  if (!["landscape", "portrait", "square"].includes(item.orientation)) {
-    errors.push(`${label} orientation must be landscape, portrait, or square.`);
-  }
   if (item.availability !== null && typeof item.availability !== "string") {
     errors.push(`${label} availability must be null or a string.`);
   }
@@ -87,6 +91,30 @@ for (const [index, item] of items.entries()) {
   if (typeof item.provisional !== "boolean") {
     errors.push(`${label} provisional must be a boolean.`);
   }
+
+  [
+    ["artPiece", item.artPiece],
+    ["description", item.description],
+    ["price", item.price],
+    ["originalSize", item.originalSize],
+    ["dateCreated", item.dateCreated],
+    ["medium", item.medium],
+    ["material", item.material],
+    ["availability", item.availability],
+    ["altText", item.altText],
+    ...(Array.isArray(item.printSizes)
+      ? item.printSizes.map((size, sizeIndex) => [
+          `printSizes[${sizeIndex}]`,
+          size,
+        ])
+      : []),
+    ...(Array.isArray(item.genres)
+      ? item.genres.map((genre, genreIndex) => [
+          `genres[${genreIndex}]`,
+          genre,
+        ])
+      : []),
+  ].forEach(([fieldName, value]) => validatePublicText(label, fieldName, value));
 }
 
 for (const [field, values] of [
@@ -127,6 +155,11 @@ for (const directoryName of ["full", "thumbnails"]) {
       const metadata = await sharp(path.join(directoryPath, filename)).metadata();
       if (metadata.format !== "webp") {
         errors.push(`Invalid WebP image in ${directoryName}: ${filename}`);
+      }
+      if (metadata.hasAlpha) {
+        errors.push(
+          `${directoryName} image must be flattened onto the cream background: ${filename}`,
+        );
       }
       if (
         directoryName === "thumbnails" &&

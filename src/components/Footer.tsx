@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 
 const primaryLinks = [
-  { label: "Home", to: "/home" },
+  { label: "Home", to: "/" },
   { label: "Gallery", to: "/gallery" },
   { label: "About", to: "/about" },
   { label: "Events", to: "/events" },
@@ -15,7 +15,7 @@ const legalLinks = [
 
 export function Footer(): React.JSX.Element {
   return (
-    <footer className="border-t border-[var(--charcoal)] bg-[var(--ink)] px-5 py-5 text-[var(--cream)] sm:px-8 sm:py-6 lg:px-12">
+    <footer className="border-t border-[var(--charcoal)] bg-[var(--charcoal)] px-5 py-5 text-[var(--cream)] sm:px-8 sm:py-6 lg:px-12">
       <div className="mx-auto flex max-w-[1440px] flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="font-serif text-[1.56rem]">Psychedelic Queen Artistry</p>
@@ -46,7 +46,7 @@ export function Footer(): React.JSX.Element {
             ))}
           </nav>
           <p className="text-[0.94rem] text-[var(--cream)]/45">
-            © {new Date().getFullYear()} Paige Cook. All rights reserved.
+            &copy; {new Date().getFullYear()} Paige Cook. All rights reserved.
           </p>
         </div>
       </div>
