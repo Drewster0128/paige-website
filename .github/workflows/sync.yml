@@ -1,6 +1,9 @@
 name: Sync Artwork
 
 on: 
+  push:
+    branches:
+      - github-action-workflow-to-sync-with-google-drive
   schedule:
     - cron: 0 0 * * *
 

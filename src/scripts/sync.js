@@ -2,6 +2,7 @@ import { google } from "googleapis"
 import { promises, createWriteStream, existsSync} from "fs"
 import { Writable } from "stream"
 import { mkdir } from "fs/promises";
+import sharp from "sharp"
 
 const auth = new google.auth.GoogleAuth({
     keyFile: process.env.KEYFILE,
@@ -61,36 +62,59 @@ async function getImagesOnDrive() {
 }
 
 async function updateImages() {
-    
-    let driveImages = await getImagesOnDrive();
 
     //check if website_images folder exists
     if(!existsSync('public/img/website_images')) {
         await mkdir('public/img/website_images');
     }
+
+    if(!existsSync('public/img/4x3')) {
+        await mkdir('public/img/4x3');
+    }
     
-    let localImages = await promises.readdir('public/img/website_images');
+    let driveImages = await getImagesOnDrive();
+
+    driveImages.forEach((driveImage) => {
+        driveImage.title = driveImage.name.split(".")[0];
+    })
+
+    let localImages = (await promises.readdir('public/img/website_images')).map((image) => {
+        return image.split(".")[0];
+    });
+
     localImages = new Set(localImages);
 
     for(const driveImage of driveImages) {
-        if(localImages.has(driveImage.name)) {
-            localImages.delete(driveImage.name);
+        if(localImages.has(driveImage.title)) {
+            localImages.delete(driveImage.title);
         }
-        else {
+        else if(driveImage.name.split(".")[1] !== "HEIC"){
             // driveImage not in local storage, download into public/img/website_images folder
             let imageBlob = await drive.files.get({
                 fileId: driveImage.id,
                 alt: 'media'
             });
 
-            let writableStream = Writable.toWeb(createWriteStream(`public/img/website_images/${driveImage.name}`));
-            imageBlob.data.stream().pipeTo(writableStream);
+            let imageBuffer = await imageBlob.data.arrayBuffer();
+            let webpImage = await sharp(imageBuffer).webp()
+
+            let metaData = await webpImage.metadata();
+
+            await webpImage.toFile(`public/img/website_images/${driveImage.title}.webp`);
+            
+            await webpImage.resize(metaData.width, Math.trunc(metaData.width * 3/4), {
+                fit: "cover"
+            }).toFile(`public/img/4x3/${driveImage.title}.webp`);
         }
     }
 
     //names remaining in localImages list should be removed
     for(const localImage of localImages) {
-        await promises.unlink(`public/img/website_images/${localImage}`);
+        //delete full version
+        await promises.unlink(`public/img/website_images/${localImage}.webp`);
+
+        //delete 4x3 version
+        await promises.unlink(`public/img/4x3/${localImage}.webp`);
     }
 }
 
