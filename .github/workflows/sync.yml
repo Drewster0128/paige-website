@@ -12,6 +12,7 @@ env:
   KEYFILE: ${{ secrets.KEYFILE }}
   SCOPES: ${{ secrets.SCOPES }}
   WEBSITE_IMAGES_FOLDER_ID: ${{ secrets.WEBSITE_IMAGES_FOLDER_ID }}
+  ARTWORK_IMAGES_FOLDER_ID: ${{ secrets.ARTWORK_IMAGES_FOLDER_ID }}
   SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
 
 jobs:

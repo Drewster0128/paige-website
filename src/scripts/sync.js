@@ -51,10 +51,9 @@ async function saveMetaData(metadata, filename) {
     await promises.writeFile(filename, metadata, 'utf8');
 }
 
-async function getImagesOnDrive() {
-
+async function getArtworkImagesOnDrive() {
     let response = await drive.files.list({
-        q: `'${process.env.WEBSITE_IMAGES_FOLDER_ID}' in parents`
+        q: `'${process.env.ARTWORK_IMAGES_FOLDER_ID}' in parents`
     });
 
     response = response.data.files;
@@ -63,28 +62,27 @@ async function getImagesOnDrive() {
 
 async function updateImages() {
 
-    //check if website_images folder exists
-    if(!existsSync('public/img/website_images')) {
-        await mkdir('public/img/website_images');
+    if(!existsSync('public/img/artwork_images')) {
+        await mkdir('public/img/artwork_images');
     }
 
     if(!existsSync('public/img/4x3')) {
         await mkdir('public/img/4x3');
     }
     
-    let driveImages = await getImagesOnDrive();
+    let artworkImages = await getArtworkImagesOnDrive();
 
-    driveImages.forEach((driveImage) => {
+    artworkImages.forEach((driveImage) => {
         driveImage.title = driveImage.name.split(".")[0];
     })
 
-    let localImages = (await promises.readdir('public/img/website_images')).map((image) => {
+    let localImages = (await promises.readdir('public/img/artwork_images')).map((image) => {
         return image.split(".")[0];
     });
 
     localImages = new Set(localImages);
 
-    for(const driveImage of driveImages) {
+    for(const driveImage of artworkImages) {
         if(localImages.has(driveImage.title)) {
             localImages.delete(driveImage.title);
         }
@@ -100,7 +98,7 @@ async function updateImages() {
 
             let metaData = await webpImage.metadata();
 
-            await webpImage.toFile(`public/img/website_images/${driveImage.title}.webp`);
+            await webpImage.toFile(`public/img/artwork_images/${driveImage.title}.webp`);
             
             await webpImage.resize(metaData.width, Math.trunc(metaData.width * 3/4), {
                 fit: "cover"
@@ -111,7 +109,7 @@ async function updateImages() {
     //names remaining in localImages list should be removed
     for(const localImage of localImages) {
         //delete full version
-        await promises.unlink(`public/img/website_images/${localImage}.webp`);
+        await promises.unlink(`public/img/artwork_images/${localImage}.webp`);
 
         //delete 4x3 version
         await promises.unlink(`public/img/4x3/${localImage}.webp`);
