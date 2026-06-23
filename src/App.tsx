@@ -1,11 +1,6 @@
 import "@css/App.css";
-import {
-  About,
-  Contact,
-  Home,
-  PrivacyPolicy,
-  TermsOfService,
-} from "./pages";
+import { ROUTES } from "./config/routes";
+import { About, Contact, Home, PrivacyPolicy, TermsOfService } from "./pages";
 import { useEffect } from "react";
 import { EventsPage } from "./features/events";
 import { GalleryPage, ImagePage } from "./features/gallery";
@@ -37,9 +32,11 @@ function ScrollToRouteStart() {
       return;
     }
 
-    if (pathname === "/contact" && hash === "#inquiry-form") {
+    if (pathname === ROUTES.contact && hash === "#inquiry-form") {
       window.requestAnimationFrame(() => {
-        document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();
+        document
+          .getElementById(decodeURIComponent(hash.slice(1)))
+          ?.scrollIntoView();
       });
       return;
     }
@@ -60,20 +57,24 @@ function App() {
           <div className="flex grow">
             <Routes>
               <Route
-                path="/"
+                path={ROUTES.home}
                 element={<Home className="min-h-full" />}
               />
-              <Route path="/home" element={<Navigate replace to="/" />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/events" element={<EventsPage />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route
-                path="/gallery"
-                element={
-                  <GalleryPage className="min-h-full w-full grow" />
-                }
+                path="/home"
+                element={<Navigate replace to={ROUTES.home} />}
+              />
+              <Route path={ROUTES.about} element={<About />} />
+              <Route path={ROUTES.contact} element={<Contact />} />
+              <Route path={ROUTES.events} element={<EventsPage />} />
+              <Route path={ROUTES.privacyPolicy} element={<PrivacyPolicy />} />
+              <Route
+                path={ROUTES.termsOfService}
+                element={<TermsOfService />}
+              />
+              <Route
+                path={ROUTES.gallery}
+                element={<GalleryPage className="min-h-full w-full grow" />}
               />
               <Route path="/images/:identifier" element={<ImagePage />} />
               <Route

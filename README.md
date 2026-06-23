@@ -22,10 +22,9 @@ npm run build
 
 ```text
 public/
-  gallery/
+  img/
     full/          Full-resolution WebP images
-    thumbnails/    800x600 WebP gallery thumbnails
-  site/             Non-gallery site images such as the home hero
+    4x3/           800x600 WebP gallery thumbnails
     home/
     about/
     contact/
@@ -49,16 +48,17 @@ scripts/
 
 ## Design Palette
 
-The homepage section rhythm is photo hero, cream gallery section, moss
-story/about section, cream events section, then moss final CTA. Use `#EEE8D8`
-cream, `#080A08` ink, and `#2E3A24` moss as the structural colors; reserve
-`#F45A4E` coral for rare emotional emphasis and `#C9FF3A` acid green for CTAs,
-arrows, small labels, and hover states. The final CTA is the emotional ending;
-the ink footer is slim utility UI and should stay visually quieter than the CTA.
+The homepage section rhythm is photo hero, cream gallery section, deep teal
+story/about section, cream events section, then a deep teal final CTA. Use
+`#EEE8D8` cream, `#080A08` ink, and `#1F5C57` brand primary as the structural
+colors; reserve `#F45A4E` coral for rare emotional emphasis and `#C9FF3A` acid
+green for primary CTAs, arrows, small labels, and hover states. The footer uses
+the same cream shell and dark text treatment as the navbar so utility UI stays
+quiet and consistent.
 
 Gallery pages follow the same restrained shell: cream for primary gallery
-surfaces, moss for filters and navigation accents, and ink/charcoal for body
-text and grounding details. Artwork should provide most of the color.
+surfaces, brand primary for filters and navigation accents, and ink/charcoal
+for body text and grounding details. Artwork should provide most of the color.
 
 ## Gallery Contract
 
@@ -91,8 +91,8 @@ then each available medium. Medium definitions and counts are derived in
 Every record must have matching files in both gallery directories:
 
 ```text
-public/gallery/full/<slug>.webp
-public/gallery/thumbnails/<slug>.webp
+public/img/full/<slug>.webp
+public/img/4x3/<slug>.webp
 ```
 
 Run `npm run gallery:validate` after changing metadata or images. Validation
@@ -102,8 +102,7 @@ unreferenced files, non-WebP assets, and thumbnails that are not 800x600.
 ## Processing Images
 
 The image processor keeps the source dimensions for the full image at WebP
-quality 85. It creates an attention-cropped 800x600 thumbnail at WebP quality
-70.
+quality 85. It creates an attention-cropped 800x600 thumbnail at WebP quality 70.
 
 ```bash
 npm run gallery:process -- path/to/full-images
@@ -114,7 +113,7 @@ To preserve separately prepared thumbnail crops:
 ```bash
 npm run gallery:process -- path/to/full-images \
   --thumbnail-input path/to/thumbnail-sources \
-  --output public/gallery
+  --output public/img
 ```
 
 Input filenames are normalized to lowercase kebab-case WebP filenames.

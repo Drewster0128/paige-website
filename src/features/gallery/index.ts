@@ -1,4 +1,7 @@
+export { ArtworkModal } from "./components/ArtworkModal";
 export { GalleryCard } from "./components/GalleryCard";
+export { GalleryHeroAccent } from "./components/GalleryHeroAccent";
+export { MediumFilterButton } from "./components/MediumFilterButton";
 export {
   filterGalleryItems,
   getGalleryGenres,

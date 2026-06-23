@@ -7,16 +7,9 @@
     "description": "A purple-toned still life featuring a turtle, flowers, and folded paper forms.",
     "price": "$125",
     "originalSize": "16 x 20 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-01-01",
-    "genres": [
-      "nature",
-      "realism"
-    ],
+    "genres": ["nature", "realism"],
     "medium": "Canvas",
     "material": "Paint on canvas",
     "displayOrder": 0,
@@ -33,16 +26,9 @@
     "description": "A stylized group portrait of three characters.",
     "price": "Prints from $25",
     "originalSize": "16 x 20 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-02-02",
-    "genres": [
-      "cartoon",
-      "people"
-    ],
+    "genres": ["cartoon", "people"],
     "medium": "Canvas",
     "material": "Acrylic paint on canvas",
     "displayOrder": 1,
@@ -59,16 +45,9 @@
     "description": "A blue-green illustration of Medusa surrounded by snakes and chains.",
     "price": "Not for sale",
     "originalSize": "12 x 16 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-03-03",
-    "genres": [
-      "fantasy",
-      "people"
-    ],
+    "genres": ["fantasy", "people"],
     "medium": "Digital",
     "material": "Digital illustration",
     "displayOrder": 2,
@@ -85,15 +64,9 @@
     "description": "Four textured fantasy eggs in purple, red, green, and orange.",
     "price": "$155",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-04-04",
-    "genres": [
-      "fantasy",
-      "sculpture"
-    ],
+    "genres": ["fantasy", "sculpture"],
     "medium": "Sculpture",
     "material": "Painted baked clay",
     "displayOrder": 3,
@@ -110,17 +83,9 @@
     "description": "Placeholder description for Winter Wonderland.",
     "price": "Sold",
     "originalSize": "12 x 16 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-05-05",
-    "genres": [
-      "christmas",
-      "landscape",
-      "realism"
-    ],
+    "genres": ["christmas", "landscape", "realism"],
     "medium": "Painting",
     "material": "Acrylic paint on canvas",
     "displayOrder": 4,
@@ -137,16 +102,9 @@
     "description": "A high-contrast profile portrait rendered with detailed line work.",
     "price": "$175",
     "originalSize": "11 x 14 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-06-06",
-    "genres": [
-      "people",
-      "realism"
-    ],
+    "genres": ["people", "realism"],
     "medium": "Drawing",
     "material": "Ink",
     "displayOrder": 5,
@@ -163,15 +121,9 @@
     "description": "A black-and-white dragon illustration with bold line work.",
     "price": "$185",
     "originalSize": "11 x 14 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-07-07",
-    "genres": [
-      "fantasy"
-    ],
+    "genres": ["fantasy"],
     "medium": "Drawing",
     "material": "Ink",
     "displayOrder": 6,
@@ -188,16 +140,9 @@
     "description": "A warm red character study inspired by Scarlet Witch.",
     "price": "$195",
     "originalSize": "12 x 16 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-08-08",
-    "genres": [
-      "fantasy",
-      "people"
-    ],
+    "genres": ["fantasy", "people"],
     "medium": "Digital",
     "material": "Digital illustration",
     "displayOrder": 7,
@@ -214,16 +159,9 @@
     "description": "A close-cropped figurative painting in muted pink and purple tones.",
     "price": "$205",
     "originalSize": "16 x 20 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-09-09",
-    "genres": [
-      "abstract",
-      "people"
-    ],
+    "genres": ["abstract", "people"],
     "medium": "Canvas",
     "material": "Paint",
     "displayOrder": 8,
@@ -240,16 +178,9 @@
     "description": "A monochromatic green portrait with reflective tear details.",
     "price": "$215",
     "originalSize": "12 x 16 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-10-10",
-    "genres": [
-      "people",
-      "realism"
-    ],
+    "genres": ["people", "realism"],
     "medium": "Digital",
     "material": "Digital illustration",
     "displayOrder": 9,
@@ -266,14 +197,9 @@
     "description": "Placeholder description for Psychedelic High Tops.",
     "price": "$225",
     "originalSize": "US size 8",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in"],
     "dateCreated": "2024-11-11",
-    "genres": [
-      "shoes"
-    ],
+    "genres": ["shoes"],
     "medium": "Shoes",
     "material": "Paint",
     "displayOrder": 10,
@@ -290,16 +216,9 @@
     "description": "Placeholder description for Totoro Mural.",
     "price": "$235",
     "originalSize": "12 x 16 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-12-12",
-    "genres": [
-      "cartoon",
-      "fantasy"
-    ],
+    "genres": ["cartoon", "fantasy"],
     "medium": "Painting",
     "material": "Paint",
     "displayOrder": 11,
@@ -316,15 +235,9 @@
     "description": "Placeholder description for Tigger Baked Clay Ornament.",
     "price": "$245",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-01-13",
-    "genres": [
-      "cartoon",
-      "christmas"
-    ],
+    "genres": ["cartoon", "christmas"],
     "medium": "Sculpture",
     "material": "Baked clay",
     "displayOrder": 12,
@@ -341,15 +254,9 @@
     "description": "Placeholder description for Winnie the Pooh Baked Clay Ornament.",
     "price": "$255",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-02-14",
-    "genres": [
-      "cartoon",
-      "christmas"
-    ],
+    "genres": ["cartoon", "christmas"],
     "medium": "Sculpture",
     "material": "Baked clay",
     "displayOrder": 13,
@@ -366,15 +273,9 @@
     "description": "Placeholder description for Piglet Baked Clay Ornament.",
     "price": "$265",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-03-15",
-    "genres": [
-      "cartoon",
-      "christmas"
-    ],
+    "genres": ["cartoon", "christmas"],
     "medium": "Sculpture",
     "material": "Baked clay",
     "displayOrder": 14,
@@ -391,15 +292,9 @@
     "description": "Placeholder description for Eeyore Baked Clay Ornament.",
     "price": "$275",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-04-16",
-    "genres": [
-      "cartoon",
-      "christmas"
-    ],
+    "genres": ["cartoon", "christmas"],
     "medium": "Sculpture",
     "material": "Baked clay",
     "displayOrder": 15,
@@ -416,15 +311,9 @@
     "description": "Placeholder description for Pepsi Santa Baked Clay Ornament.",
     "price": "$285",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-05-17",
-    "genres": [
-      "christmas",
-      "people"
-    ],
+    "genres": ["christmas", "people"],
     "medium": "Sculpture",
     "material": "Baked clay",
     "displayOrder": 16,
@@ -441,15 +330,9 @@
     "description": "Placeholder description for Child's Dream.",
     "price": "$295",
     "originalSize": "18 x 24 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-06-18",
-    "genres": [
-      "cartoon"
-    ],
+    "genres": ["cartoon"],
     "medium": "Mixed media",
     "material": "Paint, climbing holds, rope/hardware",
     "displayOrder": 17,
@@ -466,15 +349,9 @@
     "description": "Placeholder description for Rudolph Baked Clay Ornament.",
     "price": "$305",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-07-19",
-    "genres": [
-      "cartoon",
-      "christmas"
-    ],
+    "genres": ["cartoon", "christmas"],
     "medium": "Sculpture",
     "material": "Baked clay",
     "displayOrder": 18,
@@ -491,16 +368,9 @@
     "description": "Placeholder description for The Grinch Baked Clay Ornament.",
     "price": "$315",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-08-20",
-    "genres": [
-      "cartoon",
-      "christmas",
-      "fantasy"
-    ],
+    "genres": ["cartoon", "christmas", "fantasy"],
     "medium": "Sculpture",
     "material": "Baked clay",
     "displayOrder": 19,
@@ -517,16 +387,9 @@
     "description": "Placeholder description for Frosty the Snowman Baked Clay Ornament.",
     "price": "$325",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-09-21",
-    "genres": [
-      "cartoon",
-      "christmas",
-      "fantasy"
-    ],
+    "genres": ["cartoon", "christmas", "fantasy"],
     "medium": "Sculpture",
     "material": "Baked clay",
     "displayOrder": 20,
@@ -543,16 +406,9 @@
     "description": "Placeholder description for Snow Miser Baked Clay Ornament.",
     "price": "$335",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-10-22",
-    "genres": [
-      "cartoon",
-      "christmas",
-      "fantasy"
-    ],
+    "genres": ["cartoon", "christmas", "fantasy"],
     "medium": "Sculpture",
     "material": "Baked clay",
     "displayOrder": 21,
@@ -569,16 +425,9 @@
     "description": "Placeholder description for Heat Miser Baked Clay Ornament.",
     "price": "$345",
     "originalSize": "4 x 4 x 4 in",
-    "printSizes": [
-      "Mini print",
-      "5 x 7 in"
-    ],
+    "printSizes": ["Mini print", "5 x 7 in"],
     "dateCreated": "2024-11-23",
-    "genres": [
-      "cartoon",
-      "christmas",
-      "fantasy"
-    ],
+    "genres": ["cartoon", "christmas", "fantasy"],
     "medium": "Sculpture",
     "material": "Baked clay",
     "displayOrder": 22,
@@ -595,16 +444,9 @@
     "description": "Placeholder description for Tetherlight.",
     "price": "$355",
     "originalSize": "11 x 14 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-12-24",
-    "genres": [
-      "fantasy",
-      "people"
-    ],
+    "genres": ["fantasy", "people"],
     "medium": "Drawing",
     "material": "Colored pencil",
     "displayOrder": 23,
@@ -621,15 +463,9 @@
     "description": "Placeholder description for Chop Suey.",
     "price": "$365",
     "originalSize": "11 x 14 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-01-25",
-    "genres": [
-      "realism"
-    ],
+    "genres": ["realism"],
     "medium": "Drawing",
     "material": "Colored pencil",
     "displayOrder": 24,
@@ -646,15 +482,9 @@
     "description": "Placeholder description for The Panther.",
     "price": "$375",
     "originalSize": "12 x 16 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-02-26",
-    "genres": [
-      "cartoon"
-    ],
+    "genres": ["cartoon"],
     "medium": "Digital",
     "material": "Digital illustration",
     "displayOrder": 25,
@@ -671,16 +501,9 @@
     "description": "Placeholder description for Life's a Dream.",
     "price": "$385",
     "originalSize": "11 x 14 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-03-27",
-    "genres": [
-      "landscape",
-      "realism"
-    ],
+    "genres": ["landscape", "realism"],
     "medium": "Drawing",
     "material": "Colored pencil",
     "displayOrder": 26,
@@ -697,16 +520,9 @@
     "description": "Placeholder description for Woman in Gold.",
     "price": "$395",
     "originalSize": "12 x 16 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-04-28",
-    "genres": [
-      "people",
-      "realism"
-    ],
+    "genres": ["people", "realism"],
     "medium": "Digital",
     "material": "Digital painting",
     "displayOrder": 27,
@@ -723,16 +539,9 @@
     "description": "Placeholder description for I Do.",
     "price": "$405",
     "originalSize": "12 x 16 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-05-01",
-    "genres": [
-      "people",
-      "realism"
-    ],
+    "genres": ["people", "realism"],
     "medium": "Painting",
     "material": "Acrylic",
     "displayOrder": 28,
@@ -749,15 +558,9 @@
     "description": "Placeholder description for Eight of Clubs.",
     "price": "$415",
     "originalSize": "18 x 24 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-06-02",
-    "genres": [
-      "fantasy"
-    ],
+    "genres": ["fantasy"],
     "medium": "Mixed media",
     "material": "Mixed media",
     "displayOrder": 29,
@@ -774,15 +577,9 @@
     "description": "Placeholder description for Cafe Time.",
     "price": "$425",
     "originalSize": "16 x 20 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-07-03",
-    "genres": [
-      "realism"
-    ],
+    "genres": ["realism"],
     "medium": "Canvas",
     "material": "Acrylic paint",
     "displayOrder": 30,
@@ -799,16 +596,9 @@
     "description": "Placeholder description for Winter Rose.",
     "price": "$435",
     "originalSize": "12 x 16 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-08-04",
-    "genres": [
-      "nature",
-      "realism"
-    ],
+    "genres": ["nature", "realism"],
     "medium": "Painting",
     "material": "Watercolor",
     "displayOrder": 31,
@@ -825,15 +615,9 @@
     "description": "Placeholder description for Glass Mouse.",
     "price": "$445",
     "originalSize": "12 x 16 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-09-05",
-    "genres": [
-      "cartoon"
-    ],
+    "genres": ["cartoon"],
     "medium": "Painting",
     "material": "Watercolor",
     "displayOrder": 32,
@@ -850,16 +634,9 @@
     "description": "Placeholder description for Sunset Sail.",
     "price": "$455",
     "originalSize": "16 x 20 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2017-01-01",
-    "genres": [
-      "landscape",
-      "realism"
-    ],
+    "genres": ["landscape", "realism"],
     "medium": "Canvas",
     "material": "Acrylic",
     "displayOrder": 33,
@@ -876,15 +653,9 @@
     "description": "Placeholder description for Extraordinary Woman.",
     "price": "$465",
     "originalSize": "11 x 14 in",
-    "printSizes": [
-      "8 x 10 in",
-      "11 x 14 in",
-      "16 x 20 in"
-    ],
+    "printSizes": ["8 x 10 in", "11 x 14 in", "16 x 20 in"],
     "dateCreated": "2024-11-07",
-    "genres": [
-      "people"
-    ],
+    "genres": ["people"],
     "medium": "Drawing",
     "material": "Colored pencil",
     "displayOrder": 34,

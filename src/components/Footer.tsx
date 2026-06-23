@@ -1,26 +1,15 @@
 import { NavLink } from "react-router";
-
-const primaryLinks = [
-  { label: "Home", to: "/" },
-  { label: "Gallery", to: "/gallery" },
-  { label: "About", to: "/about" },
-  { label: "Events", to: "/events" },
-  { label: "Contact", to: "/contact" },
-];
-
-const legalLinks = [
-  { label: "Privacy Policy", to: "/privacy-policy" },
-  { label: "Terms of Service", to: "/terms-of-service" },
-];
+import { LEGAL_NAV_LINKS, PRIMARY_NAV_LINKS } from "../config/routes";
+import { SITE_ARTIST_NAME, SITE_BRAND_NAME } from "../config/site";
 
 export function Footer(): React.JSX.Element {
   return (
-    <footer className="border-t border-[var(--charcoal)] bg-[var(--charcoal)] px-5 py-5 text-[var(--cream)] sm:px-8 sm:py-6 lg:px-12">
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-5 md:flex-row md:items-end md:justify-between">
+    <footer className="border-t border-[var(--charcoal)]/15 bg-[var(--cream)] px-5 py-5 text-[var(--ink)] sm:px-8 sm:py-6 lg:px-12">
+      <div className="mx-auto flex max-w-[1440px] flex-col gap-5 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="font-serif text-[1.56rem]">Psychedelic Queen Artistry</p>
-          <p className="mt-1 max-w-md text-[0.94rem] leading-relaxed text-[var(--cream)]/60">
-            Artwork, appearances, and inquiries for Paige Cook.
+          <p className="font-serif text-[1.56rem]">{SITE_BRAND_NAME}</p>
+          <p className="mt-1 max-w-md text-[0.94rem] leading-relaxed text-[var(--charcoal)]/70">
+            Artwork, appearances, and inquiries for {SITE_ARTIST_NAME}.
           </p>
         </div>
 
@@ -29,7 +18,7 @@ export function Footer(): React.JSX.Element {
             aria-label="Footer navigation"
             className="flex flex-wrap gap-x-4 gap-y-1 text-[0.94rem]"
           >
-            {primaryLinks.map((link) => (
+            {PRIMARY_NAV_LINKS.map((link) => (
               <NavLink className="footer-link" key={link.to} to={link.to}>
                 {link.label}
               </NavLink>
@@ -37,16 +26,17 @@ export function Footer(): React.JSX.Element {
           </nav>
           <nav
             aria-label="Legal"
-            className="flex flex-wrap gap-x-4 gap-y-1 text-[0.94rem] uppercase tracking-[0.14em] text-[var(--cream)]/55"
+            className="flex flex-wrap gap-x-4 gap-y-1 text-[0.94rem] uppercase tracking-[0.14em] text-[var(--charcoal)]/65"
           >
-            {legalLinks.map((link) => (
+            {LEGAL_NAV_LINKS.map((link) => (
               <NavLink className="footer-link" key={link.to} to={link.to}>
                 {link.label}
               </NavLink>
             ))}
           </nav>
-          <p className="text-[0.94rem] text-[var(--cream)]/45">
-            &copy; {new Date().getFullYear()} Paige Cook. All rights reserved.
+          <p className="text-[0.94rem] text-[var(--charcoal)]/55">
+            &copy; {new Date().getFullYear()} {SITE_ARTIST_NAME}. All rights
+            reserved.
           </p>
         </div>
       </div>

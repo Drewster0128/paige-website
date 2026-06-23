@@ -1,4 +1,9 @@
 import { useEffect } from "react";
+import {
+  DEFAULT_METADATA_IMAGE,
+  DEFAULT_METADATA_IMAGE_ALT,
+  DEFAULT_METADATA_TYPE,
+} from "../config/site";
 
 interface PageMetadata {
   title: string;
@@ -44,8 +49,9 @@ function upsertMeta(
 }
 
 function upsertCanonical(href: string): () => void {
-  const element =
-    document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  const element = document.head.querySelector<HTMLLinkElement>(
+    'link[rel="canonical"]',
+  );
   const link = element ?? document.createElement("link");
   const previousHref = link.getAttribute("href");
 
@@ -79,9 +85,9 @@ export function usePageMetadata({
   title,
   description,
   canonicalPath,
-  image = "/site/home/hero.webp",
-  imageAlt = "Colorful artwork by Paige Cook for Psychedelic Queen Artistry",
-  type = "website",
+  image = DEFAULT_METADATA_IMAGE,
+  imageAlt = DEFAULT_METADATA_IMAGE_ALT,
+  type = DEFAULT_METADATA_TYPE,
 }: PageMetadata): void {
   useEffect(() => {
     const previousTitle = document.title;

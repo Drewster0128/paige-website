@@ -36,7 +36,8 @@ describe("gallery data", () => {
     expect(turtle).toMatchObject({
       availability: "Available",
       material: "Paint on canvas",
-      altText: "Purple turtle still life painting with flowers and shell details.",
+      altText:
+        "Purple turtle still life painting with flowers and shell details.",
       featured: true,
     });
     expect(dragonEggs).toMatchObject({
@@ -44,10 +45,14 @@ describe("gallery data", () => {
       material: "Painted baked clay",
       featured: true,
     });
-    expect(items.every((item) => typeof item.altText === "string" && item.altText.length > 0)).toBe(
+    expect(
+      items.every(
+        (item) => typeof item.altText === "string" && item.altText.length > 0,
+      ),
+    ).toBe(true);
+    expect(items.every((item) => typeof item.featured === "boolean")).toBe(
       true,
     );
-    expect(items.every((item) => typeof item.featured === "boolean")).toBe(true);
   });
 
   it("derives sorted unique genres", () => {
@@ -83,10 +88,12 @@ describe("gallery filters", () => {
 
   it("searches partial text case-insensitively across fields", () => {
     expect(filterGalleryItems(items, "PURPLE-TONED", "all")).toHaveLength(1);
-    expect(filterGalleryItems(items, "baked clay", "all").length).toBeGreaterThan(1);
-    expect(filterGalleryItems(items, "dragon", "all").map((item) => item.slug)).toEqual(
-      expect.arrayContaining(["dragon-study", "dragon-eggs"]),
-    );
+    expect(
+      filterGalleryItems(items, "baked clay", "all").length,
+    ).toBeGreaterThan(1);
+    expect(
+      filterGalleryItems(items, "dragon", "all").map((item) => item.slug),
+    ).toEqual(expect.arrayContaining(["dragon-study", "dragon-eggs"]));
   });
 
   it("combines genre and search filters", () => {
@@ -100,7 +107,9 @@ describe("gallery filters", () => {
 
   it("builds stable medium filter URLs", () => {
     expect(slugifyMedium("Mixed media")).toBe("mixed-media");
-    expect(getGalleryMediumUrl("Mixed media")).toBe("/gallery?medium=mixed-media");
+    expect(getGalleryMediumUrl("Mixed media")).toBe(
+      "/gallery?medium=mixed-media",
+    );
   });
 });
 

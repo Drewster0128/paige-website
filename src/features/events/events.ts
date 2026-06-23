@@ -1,9 +1,9 @@
 import eventData from "./data/events.json";
 import type { Event } from "./types";
 
-const events = (eventData as Event[]).slice().sort((first, second) =>
-  first.startDate.localeCompare(second.startDate),
-);
+const events = (eventData as Event[])
+  .slice()
+  .sort((first, second) => first.startDate.localeCompare(second.startDate));
 
 export function getUpcomingEvents(): Event[] {
   return events.slice();

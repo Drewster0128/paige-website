@@ -1,4 +1,6 @@
 import { Navigate, NavLink, useParams } from "react-router";
+import { HERO_IMAGES } from "../../../config/assets";
+import { ROUTES } from "../../../config/routes";
 import { resolveGalleryItem } from "../gallery";
 import { getFullImageUrl, getImagePageUrl } from "../paths";
 import { usePageMetadata } from "../../../pages/usePageMetadata";
@@ -15,8 +17,10 @@ export function ImagePage(): React.JSX.Element {
     description: metadataItem
       ? `${metadataItem.description} View details, availability, original size, print sizes, and inquiry options for this Paige Cook artwork.`
       : "The requested Psychedelic Queen Artistry artwork could not be found. Browse Paige Cook's gallery for available originals, prints, and custom artwork.",
-    canonicalPath: metadataItem ? getImagePageUrl(metadataItem) : "/gallery",
-    image: metadataItem ? getFullImageUrl(metadataItem) : "/site/home/hero.webp",
+    canonicalPath: metadataItem
+      ? getImagePageUrl(metadataItem)
+      : ROUTES.gallery,
+    image: metadataItem ? getFullImageUrl(metadataItem) : HERO_IMAGES.home,
     imageAlt: metadataItem?.altText,
     type: metadataItem ? "article" : "website",
   });
@@ -25,7 +29,10 @@ export function ImagePage(): React.JSX.Element {
     return (
       <section className="mx-auto flex grow flex-col items-center gap-4 bg-[var(--cream)] px-4 py-16 text-[var(--ink)]">
         <h1 className="text-4xl">Artwork not found</h1>
-        <NavLink className="home-text-link text-[var(--moss)]" to="/gallery">
+        <NavLink
+          className="site-text-link text-[var(--brand-primary)]"
+          to={ROUTES.gallery}
+        >
           Return to the gallery
         </NavLink>
       </section>
@@ -48,7 +55,9 @@ export function ImagePage(): React.JSX.Element {
     { label: "Date created", value: item.dateCreated },
     { label: "Genres", value: item.genres.join(", ") },
     { label: "Material", value: item.material },
-  ].filter((row): row is { label: string; value: string } => Boolean(row.value));
+  ].filter((row): row is { label: string; value: string } =>
+    Boolean(row.value),
+  );
 
   return (
     <section className="flex min-h-full w-full grow bg-[var(--cream)] text-[var(--ink)]">
@@ -61,7 +70,10 @@ export function ImagePage(): React.JSX.Element {
           />
         </div>
         <div className="flex w-full min-w-0 max-w-[calc(100vw-2.5rem)] grow flex-col gap-4 lg:min-w-64 lg:max-w-none">
-          <NavLink className="home-text-link text-[var(--moss)]" to="/gallery">
+          <NavLink
+            className="site-text-link text-[var(--brand-primary)]"
+            to={ROUTES.gallery}
+          >
             <span aria-hidden="true">&lt;-</span>
             Gallery
           </NavLink>
@@ -69,7 +81,9 @@ export function ImagePage(): React.JSX.Element {
             {item.artPiece}
           </h1>
           {item.medium && (
-            <p className="home-kicker text-[var(--moss)]">{item.medium}</p>
+            <p className="meta-label text-[var(--brand-primary)]">
+              {item.medium}
+            </p>
           )}
           {item.description && (
             <p className="break-words leading-relaxed text-[var(--charcoal)]/80">
@@ -77,13 +91,13 @@ export function ImagePage(): React.JSX.Element {
             </p>
           )}
           {metadataRows.length > 0 && (
-            <dl className="grid gap-3 border-t border-[var(--moss)]/30 pt-4 text-sm">
+            <dl className="grid gap-3 border-t border-[var(--brand-primary)]/30 pt-4 text-sm">
               {metadataRows.map((row) => (
                 <div
                   className="grid gap-1 sm:grid-cols-[8rem_1fr]"
                   key={row.label}
                 >
-                  <dt className="uppercase tracking-[0.16em] text-[var(--moss)]">
+                  <dt className="uppercase tracking-[0.16em] text-[var(--brand-primary)]">
                     {row.label}
                   </dt>
                   <dd className="capitalize text-[var(--charcoal)]/85">
@@ -94,7 +108,7 @@ export function ImagePage(): React.JSX.Element {
             </dl>
           )}
           {item.provisional && (
-            <p className="border-l-4 border-[var(--moss)]/45 pl-4 text-sm leading-relaxed text-[var(--charcoal)]/65">
+            <p className="border-l-4 border-[var(--brand-primary)]/45 pl-4 text-sm leading-relaxed text-[var(--charcoal)]/65">
               Provisional details. Final sizing, pricing, and availability may
               be adjusted before purchase.
             </p>

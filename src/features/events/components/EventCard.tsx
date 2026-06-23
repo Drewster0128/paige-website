@@ -5,7 +5,7 @@ export function EventCard({ event }: { event: Event }): React.JSX.Element {
   return (
     <article className="grid gap-6 border-t border-[var(--charcoal)] pt-6 sm:grid-cols-[12rem_1fr]">
       <div>
-        <p className="home-kicker text-[var(--moss)]">
+        <p className="meta-label text-[var(--brand-primary)]">
           {formatEventDate(event)}
         </p>
       </div>
@@ -28,7 +28,7 @@ export function EventCard({ event }: { event: Event }): React.JSX.Element {
 
         {event.url && (
           <a
-            className="home-text-link w-fit text-[var(--moss)]"
+            className="site-text-link w-fit text-[var(--brand-primary)]"
             href={event.url}
             rel="noreferrer"
             target="_blank"

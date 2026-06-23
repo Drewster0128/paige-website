@@ -66,9 +66,11 @@ export function getGalleryItems(): GalleryItem[] {
   return galleryItems.slice();
 }
 
-export function getGalleryGenres(items: GalleryItem[] = galleryItems): string[] {
-  return Array.from(new Set(items.flatMap((item) => item.genres))).sort((a, b) =>
-    a.localeCompare(b),
+export function getGalleryGenres(
+  items: GalleryItem[] = galleryItems,
+): string[] {
+  return Array.from(new Set(items.flatMap((item) => item.genres))).sort(
+    (a, b) => a.localeCompare(b),
   );
 }
 
@@ -165,7 +167,9 @@ export function resolveGalleryItem(
   }
 
   const legacyId = Number(identifier);
-  const itemByLegacyId = galleryItems.find((item) => item.legacyId === legacyId);
+  const itemByLegacyId = galleryItems.find(
+    (item) => item.legacyId === legacyId,
+  );
 
   return itemByLegacyId
     ? { item: itemByLegacyId, isLegacyId: true }

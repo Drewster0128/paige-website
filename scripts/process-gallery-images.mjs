@@ -3,7 +3,14 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
-const SUPPORTED_EXTENSIONS = new Set([".jpeg", ".jpg", ".png", ".tif", ".tiff", ".webp"]);
+const SUPPORTED_EXTENSIONS = new Set([
+  ".jpeg",
+  ".jpg",
+  ".png",
+  ".tif",
+  ".tiff",
+  ".webp",
+]);
 const GALLERY_BACKGROUND_COLOR = "#EEE8D8";
 
 export function slugify(value) {
@@ -22,7 +29,7 @@ export async function processGalleryImage({
   outputFilename,
 }) {
   const fullDirectory = path.join(outputRoot, "full");
-  const thumbnailDirectory = path.join(outputRoot, "thumbnails");
+  const thumbnailDirectory = path.join(outputRoot, "4x3");
   await Promise.all([
     mkdir(fullDirectory, { recursive: true }),
     mkdir(thumbnailDirectory, { recursive: true }),
@@ -68,7 +75,7 @@ async function runCli() {
     );
   }
 
-  const outputRoot = getOption("--output") ?? "public/gallery";
+  const outputRoot = getOption("--output") ?? "public/img";
   const thumbnailInputDirectory = getOption("--thumbnail-input");
   const imageNames = await findImages(inputDirectory);
   const thumbnailNames = thumbnailInputDirectory

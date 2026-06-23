@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { GENERAL_CONTACT_EMAIL } from "../config/site";
 import { PageLayout } from "./PageLayout";
 
 export function TermsOfService(): React.JSX.Element {
@@ -40,10 +40,10 @@ export function TermsOfService(): React.JSX.Element {
         <section className="flex flex-col gap-3">
           <h2 className="font-serif text-2xl">Contact</h2>
           <p>
-            For questions about these terms, use the{" "}
-            <NavLink className="underline" to="/contact">
-              contact page
-            </NavLink>
+            For questions about these terms, email{" "}
+            <a className="underline" href={`mailto:${GENERAL_CONTACT_EMAIL}`}>
+              {GENERAL_CONTACT_EMAIL}
+            </a>
             .
           </p>
         </section>

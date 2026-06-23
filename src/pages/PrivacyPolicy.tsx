@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { GENERAL_CONTACT_EMAIL } from "../config/site";
 import { PageLayout } from "./PageLayout";
 
 export function PrivacyPolicy(): React.JSX.Element {
@@ -23,8 +23,8 @@ export function PrivacyPolicy(): React.JSX.Element {
           <p>
             This site does not currently collect account information or process
             purchases. If you submit the contact form, the information you
-            choose to send may be used to respond to your inquiry about
-            artwork, commissions, collaborations, or events.
+            choose to send may be used to respond to your inquiry about artwork,
+            commissions, collaborations, or events.
           </p>
         </section>
 
@@ -48,10 +48,10 @@ export function PrivacyPolicy(): React.JSX.Element {
         <section className="flex flex-col gap-3">
           <h2 className="font-serif text-2xl">Contact</h2>
           <p>
-            For privacy questions, use the{" "}
-            <NavLink className="underline" to="/contact">
-              contact page
-            </NavLink>
+            For privacy questions, email{" "}
+            <a className="underline" href={`mailto:${GENERAL_CONTACT_EMAIL}`}>
+              {GENERAL_CONTACT_EMAIL}
+            </a>
             .
           </p>
         </section>

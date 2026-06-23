@@ -9,6 +9,8 @@
     "gallery:process": "node scripts/process-gallery-images.mjs",
     "gallery:validate": "node scripts/validate-gallery.mjs",
     "lint": "eslint .",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
     "preview": "vite preview",
     "test": "vitest run"
   },
@@ -34,6 +36,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "prettier": "^3.8.4",
     "sharp": "^0.35.1",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.3",

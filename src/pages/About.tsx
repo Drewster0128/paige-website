@@ -1,4 +1,6 @@
 import { NavLink } from "react-router";
+import { HERO_IMAGES } from "../config/assets";
+import { ROUTES } from "../config/routes";
 import { usePageMetadata } from "./usePageMetadata";
 
 const ABOUT_PAGE_TITLE =
@@ -11,23 +13,22 @@ export function About(): React.JSX.Element {
     title: ABOUT_PAGE_TITLE,
     description: ABOUT_PAGE_DESCRIPTION,
     canonicalPath: "/about",
-    image: "/site/about/hero.webp",
+    image: HERO_IMAGES.about,
     type: "profile",
   });
 
   return (
     <div className="flex w-full grow flex-col bg-[var(--cream)] text-[var(--ink)]">
-      <section className="relative min-h-[calc(100svh-5rem)] overflow-hidden bg-[var(--moss)] text-[var(--cream)]">
+      <section className="relative min-h-[calc(100svh-5rem)] overflow-hidden bg-[var(--brand-primary)] text-[var(--cream)]">
         <img
           alt="Paige Cook working in the studio"
           className="absolute inset-0 h-full w-full object-cover object-center"
-          src="/site/about/hero.webp"
+          src={HERO_IMAGES.about}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(75,99,56,0.94)] via-[rgba(75,99,56,0.38)] to-[rgba(75,99,56,0.12)]" />
 
         <div className="relative mx-auto flex min-h-[calc(100svh-5rem)] max-w-[1440px] flex-col justify-end px-5 pb-10 sm:px-8 sm:pb-14 lg:px-12">
-          <p className="home-kicker text-[var(--acid)]">About the artist</p>
-          <h1 className="mt-5 max-w-6xl font-serif text-[clamp(3.4rem,9vw,9rem)] leading-[0.86] text-[var(--cream)]">
+          <h1 className="max-w-6xl font-serif text-[clamp(3.4rem,9vw,9rem)] leading-[0.86] text-[var(--cream)]">
             About Paige Cook
           </h1>
           <div className="mt-8 flex flex-col items-start justify-between gap-6 border-t border-[var(--cream)]/40 pt-5 lg:flex-row lg:items-end">
@@ -37,11 +38,17 @@ export function About(): React.JSX.Element {
               illustration, sculpture, prints, and custom artwork.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <NavLink className="home-button home-button--hero" to="/gallery">
+              <NavLink
+                className="site-button site-button--accent"
+                to={ROUTES.gallery}
+              >
                 View artwork
                 <span aria-hidden="true">-&gt;</span>
               </NavLink>
-              <NavLink className="home-button home-button--light" to="/contact">
+              <NavLink
+                className="site-button site-button--light"
+                to={ROUTES.contact}
+              >
                 Start an inquiry
                 <span aria-hidden="true">-&gt;</span>
               </NavLink>
@@ -53,8 +60,7 @@ export function About(): React.JSX.Element {
       <section className="px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="mx-auto grid max-w-[1360px] gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-20">
           <div>
-            <p className="home-kicker text-[var(--moss)]">Artist bio</p>
-            <h2 className="mt-4 max-w-xl font-serif text-[clamp(3rem,6vw,6.5rem)] leading-[0.9]">
+            <h2 className="max-w-xl font-serif text-[clamp(3rem,6vw,6.5rem)] leading-[0.9]">
               Color, character, and handmade detail.
             </h2>
           </div>
@@ -87,12 +93,11 @@ export function About(): React.JSX.Element {
         </div>
       </section>
 
-      <section className="bg-[var(--moss)] px-5 py-20 text-[var(--cream)] sm:px-8 sm:py-24 lg:px-12">
+      <section className="bg-[var(--brand-primary)] px-5 py-20 text-[var(--cream)] sm:px-8 sm:py-24 lg:px-12">
         <div className="mx-auto max-w-[1360px]">
           <div className="mb-10 flex flex-col justify-between gap-6 border-b border-[var(--cream)]/35 pb-6 lg:flex-row lg:items-end">
             <div>
-              <p className="home-kicker text-[var(--acid)]">What she creates</p>
-              <h2 className="mt-3 font-serif text-5xl leading-none sm:text-7xl">
+              <h2 className="font-serif text-5xl leading-none sm:text-7xl">
                 Artwork made to feel personal.
               </h2>
             </div>
@@ -104,7 +109,6 @@ export function About(): React.JSX.Element {
 
           <div className="grid gap-8 lg:grid-cols-3">
             <section className="border-t border-[var(--cream)]/35 pt-5">
-              <p className="home-kicker text-[var(--acid)]">Original work</p>
               <h3 className="mt-4 font-serif text-3xl">
                 Paintings, drawings, and sculpture
               </h3>
@@ -116,7 +120,6 @@ export function About(): React.JSX.Element {
             </section>
 
             <section className="border-t border-[var(--cream)]/35 pt-5">
-              <p className="home-kicker text-[var(--acid)]">Prints</p>
               <h3 className="mt-4 font-serif text-3xl">
                 Accessible ways to collect
               </h3>
@@ -128,7 +131,6 @@ export function About(): React.JSX.Element {
             </section>
 
             <section className="border-t border-[var(--cream)]/35 pt-5">
-              <p className="home-kicker text-[var(--acid)]">Commissions</p>
               <h3 className="mt-4 font-serif text-3xl">
                 Custom artwork and collaborations
               </h3>
@@ -145,31 +147,34 @@ export function About(): React.JSX.Element {
       <section className="px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="mx-auto grid max-w-[1360px] gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
           <div>
-            <p className="home-kicker text-[var(--coral)]">Quick facts</p>
-            <h2 className="mt-4 max-w-xl font-serif text-[clamp(3rem,6vw,6.5rem)] leading-[0.9]">
+            <h2 className="max-w-xl font-serif text-[clamp(3rem,6vw,6.5rem)] leading-[0.9]">
               A Chicago-area practice with MIAD roots.
             </h2>
           </div>
 
           <dl className="grid gap-6 border-t border-[var(--charcoal)] pt-6 sm:grid-cols-2">
             <div>
-              <dt className="home-kicker text-[var(--moss)]">Artist</dt>
+              <dt className="meta-label text-[var(--brand-primary)]">Artist</dt>
               <dd className="mt-3 font-serif text-3xl">Paige Cook</dd>
             </div>
             <div>
-              <dt className="home-kicker text-[var(--moss)]">Location</dt>
-              <dd className="mt-3 font-serif text-3xl">
-                Greater Chicago area
-              </dd>
+              <dt className="meta-label text-[var(--brand-primary)]">
+                Location
+              </dt>
+              <dd className="mt-3 font-serif text-3xl">Greater Chicago area</dd>
             </div>
             <div>
-              <dt className="home-kicker text-[var(--moss)]">Education</dt>
+              <dt className="meta-label text-[var(--brand-primary)]">
+                Education
+              </dt>
               <dd className="mt-3 font-serif text-3xl">
                 MIAD bachelor's, 2024
               </dd>
             </div>
             <div>
-              <dt className="home-kicker text-[var(--moss)]">Studio focus</dt>
+              <dt className="meta-label text-[var(--brand-primary)]">
+                Studio focus
+              </dt>
               <dd className="mt-3 font-serif text-3xl">
                 Originals, prints, commissions
               </dd>
@@ -178,11 +183,10 @@ export function About(): React.JSX.Element {
         </div>
       </section>
 
-      <section className="bg-[var(--moss)] px-5 py-20 text-[var(--cream)] sm:px-8 sm:py-28 lg:px-12">
+      <section className="bg-[var(--brand-primary)] px-5 py-20 text-[var(--cream)] sm:px-8 sm:py-28 lg:px-12">
         <div className="mx-auto flex max-w-[1360px] flex-col items-start justify-between gap-8 border-y border-[var(--cream)]/35 py-10 lg:flex-row lg:items-center">
           <div>
-            <p className="home-kicker text-[var(--acid)]">Collect or commission</p>
-            <h2 className="mt-4 max-w-3xl font-serif text-5xl leading-none sm:text-7xl">
+            <h2 className="max-w-3xl font-serif text-5xl leading-none sm:text-7xl">
               Find the piece that feels like yours.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--cream)]/78">
@@ -191,11 +195,17 @@ export function About(): React.JSX.Element {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <NavLink className="home-button home-button--hero" to="/gallery">
+            <NavLink
+              className="site-button site-button--accent"
+              to={ROUTES.gallery}
+            >
               Browse gallery
               <span aria-hidden="true">-&gt;</span>
             </NavLink>
-            <NavLink className="home-button home-button--light" to="/contact">
+            <NavLink
+              className="site-button site-button--light"
+              to={ROUTES.contact}
+            >
               Contact Paige
               <span aria-hidden="true">-&gt;</span>
             </NavLink>

@@ -3,7 +3,7 @@ import path from "node:path";
 import sharp from "sharp";
 
 const metadataPath = "src/features/gallery/data/gallery.json";
-const galleryRoot = "public/gallery";
+const galleryRoot = "public/img";
 const items = JSON.parse(await readFile(metadataPath, "utf8"));
 const errors = [];
 const mojibakePattern = /[\u00C2\u00E2\uFFFD]/;
@@ -109,12 +109,11 @@ for (const [index, item] of items.entries()) {
         ])
       : []),
     ...(Array.isArray(item.genres)
-      ? item.genres.map((genre, genreIndex) => [
-          `genres[${genreIndex}]`,
-          genre,
-        ])
+      ? item.genres.map((genre, genreIndex) => [`genres[${genreIndex}]`, genre])
       : []),
-  ].forEach(([fieldName, value]) => validatePublicText(label, fieldName, value));
+  ].forEach(([fieldName, value]) =>
+    validatePublicText(label, fieldName, value),
+  );
 }
 
 for (const [field, values] of [
@@ -130,7 +129,7 @@ for (const [field, values] of [
 }
 
 const expectedFiles = new Set(items.map((item) => item.filename));
-for (const directoryName of ["full", "thumbnails"]) {
+for (const directoryName of ["full", "4x3"]) {
   const directoryPath = path.join(galleryRoot, directoryName);
   let actualFiles = [];
   try {
@@ -152,7 +151,9 @@ for (const directoryName of ["full", "thumbnails"]) {
     } else if (!expectedFiles.has(filename)) {
       errors.push(`Unreferenced ${directoryName} image: ${filename}`);
     } else {
-      const metadata = await sharp(path.join(directoryPath, filename)).metadata();
+      const metadata = await sharp(
+        path.join(directoryPath, filename),
+      ).metadata();
       if (metadata.format !== "webp") {
         errors.push(`Invalid WebP image in ${directoryName}: ${filename}`);
       }
@@ -162,10 +163,10 @@ for (const directoryName of ["full", "thumbnails"]) {
         );
       }
       if (
-        directoryName === "thumbnails" &&
+        directoryName === "4x3" &&
         (metadata.width !== 800 || metadata.height !== 600)
       ) {
-        errors.push(`Thumbnail must be 800x600: ${filename}`);
+        errors.push(`4x3 thumbnail must be 800x600: ${filename}`);
       }
     }
   }
