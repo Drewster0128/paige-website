@@ -73,7 +73,13 @@ async function updateImages() {
     let artworkImages = await getArtworkImagesOnDrive();
 
     artworkImages.forEach((driveImage) => {
-        driveImage.title = driveImage.name.split(".")[0];
+        let temp = driveImage.name.split(".")[0];
+        temp = temp.split(/(?=[A-Z])/);
+        temp = temp.map((word) => {
+            return word.toLowerCase();
+        })
+
+        driveImage.title = temp.join("-");
     })
 
     let localImages = (await promises.readdir('public/img/full')).map((image) => {
