@@ -1,3 +1,5 @@
-export { Home } from "./Home"
-export { Gallery } from "./Gallery"
-export { ImagePage } from "./ImagePage"
+export { About } from "./About";
+export { Contact } from "./Contact";
+export { Home } from "./Home";
+export { PrivacyPolicy } from "./PrivacyPolicy";
+export { TermsOfService } from "./TermsOfService";

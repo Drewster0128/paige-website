@@ -1,38 +1,93 @@
-//import { useState } from "react";
 import "@css/App.css";
-import { Home, Gallery, ImagePage } from "./pages";
-import { BrowserRouter, Routes, Route } from "react-router";
-import { NavBar } from "./components";
+import { ROUTES } from "./config/routes";
+import { About, Contact, Home, PrivacyPolicy, TermsOfService } from "./pages";
+import { useEffect } from "react";
+import { EventsPage } from "./features/events";
+import { GalleryPage, ImagePage } from "./features/gallery";
+import {
+  BrowserRouter,
+  Navigate,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router";
+import { Footer, NavBar } from "./components";
+
+function ScrollToRouteStart() {
+  const { hash, pathname, search, state } = useLocation();
+  const shouldPreserveScroll =
+    typeof state === "object" &&
+    state !== null &&
+    "preserveScroll" in state &&
+    state.preserveScroll === true;
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  useEffect(() => {
+    if (shouldPreserveScroll) {
+      return;
+    }
+
+    if (pathname === ROUTES.contact && hash === "#inquiry-form") {
+      window.requestAnimationFrame(() => {
+        document
+          .getElementById(decodeURIComponent(hash.slice(1)))
+          ?.scrollIntoView();
+      });
+      return;
+    }
+
+    window.scrollTo(0, 0);
+  }, [hash, pathname, search, shouldPreserveScroll]);
+
+  return null;
+}
 
 function App() {
-  //const [count, setCount] = useState(0);
   return (
     <div className="h-fit">
       <BrowserRouter>
-        <main
-          className="flex flex-col bg-neutral-950
-          min-h-lvh"
-        >
+        <ScrollToRouteStart />
+        <main className="flex min-h-lvh flex-col bg-[var(--cream)]">
           <NavBar />
-          <div className="flex">
+          <div className="flex grow">
             <Routes>
               <Route
-                path="/"
-                element={
-                  <Home
-                    className="min-h-full
-              px-4 max-w-[1264px]
-              xl:mx-auto"
-                  />
-                }
+                path={ROUTES.home}
+                element={<Home className="min-h-full" />}
               />
               <Route
-                path="/gallery"
-                element={<Gallery className="min-h-full grow px-4 w-full max-w-[1264] xl:mx-auto" />}
+                path="/home"
+                element={<Navigate replace to={ROUTES.home} />}
               />
-              <Route path="/images/:id" element={<ImagePage />} />
+              <Route path={ROUTES.about} element={<About />} />
+              <Route path={ROUTES.contact} element={<Contact />} />
+              <Route path={ROUTES.events} element={<EventsPage />} />
+              <Route path={ROUTES.privacyPolicy} element={<PrivacyPolicy />} />
+              <Route
+                path={ROUTES.termsOfService}
+                element={<TermsOfService />}
+              />
+              <Route
+                path={ROUTES.gallery}
+                element={<GalleryPage className="min-h-full w-full grow" />}
+              />
+              <Route path="/images/:identifier" element={<ImagePage />} />
+              <Route
+                path="*"
+                element={
+                  <section className="mx-auto px-4 py-16 text-center text-[var(--ink)]">
+                    <h1 className="text-4xl">Page not found</h1>
+                  </section>
+                }
+              />
             </Routes>
           </div>
+          <Footer />
         </main>
       </BrowserRouter>
     </div>

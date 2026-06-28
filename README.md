@@ -1,66 +1,150 @@
 # Paige Website
 
-## Overview
+A Vite and React portfolio for Paige Cook's artwork.
 
-This project serves as a digital portfolio to my sister, Paige Cook's, artwork.
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Useful checks:
+
+```bash
+npm run lint
+npm test
+npm run gallery:validate
+npm run build
+```
 
 ## Project Structure
 
-```
-.
-├── eslint.config.js
-├── index.html
-├── package-lock.json
-├── package.json
-├── public
-│   ├── img
-│   │   ├── 16x9
-│   │   ├── 4x3
-│   │   └── full
-│   └── vite.svg
-├── README.md
-├── src
-│   ├── App.tsx
-│   ├── assets
-│   │   └── css
-│   │       └── App.css
-│   ├── components
-│   │   ├── index.ts
-│   │   ├── NavBar.tsx
-│   │   └── PictureBlock.tsx
-│   ├── data
-│   │   └── pictures.json
-│   ├── index.css
-│   ├── main.tsx
-│   ├── pages
-│   │   ├── Gallery.tsx
-│   │   ├── Home.tsx
-│   │   ├── ImagePage.tsx
-│   │   └── index.ts
-│   ├── types
-│   │   ├── Date.ts
-│   │   ├── index.ts
-│   │   └── PictureObject.ts
-│   └── utils
-│       └── index.ts
-├── test.md
-├── treeignore
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-└── vite.config.ts
+```text
+public/
+  img/
+    full/          Full-resolution WebP images
+    4x3/           800x600 WebP gallery thumbnails
+    home/
+    about/
+    contact/
+    events/
+src/
+  components/      Shared site components
+  features/
+    events/         Upcoming-event data, cards, and page
+    gallery/
+      components/  Gallery-specific UI
+      data/        Gallery metadata
+      pages/       Gallery and image detail routes
+      gallery.ts   Filtering and item lookup
+      paths.ts     Gallery URL construction
+      types.ts     Gallery data contract
+  pages/           Non-gallery pages
+scripts/
+  process-gallery-images.mjs
+  validate-gallery.mjs
 ```
 
-## Technologies Used
--  Vite for scaffolding
--  React as framework
--  Tailwind for css
+## Design Palette
 
-## Lessons Learned
--  After working with Vue and React this semester, I prefered using Vue and wished I had used it here
--  TailwindCSS gave me a lot of headaches and made component code difficult to read. I would rather use pure CSS from an external style sheet
+The homepage section rhythm is photo hero, cream gallery section, deep teal
+story/about section, cream events section, then a deep teal final CTA. Use
+`#EEE8D8` cream, `#080A08` ink, and `#1F5C57` brand primary as the structural
+colors; reserve `#F45A4E` coral for rare emotional emphasis and `#C9FF3A` acid
+green for primary CTAs, arrows, small labels, and hover states. The footer uses
+the same cream shell and dark text treatment as the navbar so utility UI stays
+quiet and consistent.
 
-## Future Scope
--  Build a backend database
--  Add more artwork Paige has worked on
--  Edit CSS at breakpoints for responsive design
+Gallery pages follow the same restrained shell: cream for primary gallery
+surfaces, brand primary for filters and navigation accents, and ink/charcoal
+for body text and grounding details. Artwork should provide most of the color.
+
+## Gallery Contract
+
+Each record in `src/features/gallery/data/gallery.json` has:
+
+- `legacyId`: compatibility key for old `/images/:id` links
+- `slug`: stable URL and asset identity
+- `artPiece`
+- `filename`: always `<slug>.webp`
+- `description`
+- `price`: sale price or `null`
+- `originalSize`: original artwork size or `null`
+- `printSizes`: available print sizes
+- `dateCreated`: `YYYY-MM-DD` or `null`
+- `genres`
+- `medium`: broad format/category such as `Canvas`, `Drawing`, or `Digital`
+- `material`: material detail such as `Acrylic`, `Ink`, or `Paint`, or `null`
+- `availability`: client-facing availability such as `Available`, `Sold`, or `Prints Available`, or `null`
+- `altText`: accessible image description used by gallery images
+- `featured`: whether the artwork is eligible for featured surfaces
+- `displayOrder`: zero-based client sort order
+- `provisional`
+
+The base `/gallery` page keeps visitors in one place. It opens artwork in an
+in-page modal with image-first details, keyboard close behavior, and an inquiry
+CTA back to `/contact`. The archive exposes a medium filter ordered as `All`,
+then each available medium. Medium definitions and counts are derived in
+`src/features/gallery/gallery.ts`.
+
+Every record must have matching files in both gallery directories:
+
+```text
+public/img/full/<slug>.webp
+public/img/4x3/<slug>.webp
+```
+
+Run `npm run gallery:validate` after changing metadata or images. Validation
+rejects duplicate identifiers, invalid metadata, missing image pairs,
+unreferenced files, non-WebP assets, and thumbnails that are not 800x600.
+
+## Processing Images
+
+The image processor keeps the source dimensions for the full image at WebP
+quality 85. It creates an attention-cropped 800x600 thumbnail at WebP quality 70.
+
+```bash
+npm run gallery:process -- path/to/full-images
+```
+
+To preserve separately prepared thumbnail crops:
+
+```bash
+npm run gallery:process -- path/to/full-images \
+  --thumbnail-input path/to/thumbnail-sources \
+  --output public/img
+```
+
+Input filenames are normalized to lowercase kebab-case WebP filenames.
+Metadata is intentionally not generated by this command.
+
+## Event Contract
+
+Upcoming appearances are stored in
+`src/features/events/data/events.json` and rendered chronologically on
+`/events`. Each event contains:
+
+- `id`: unique lowercase kebab-case identifier
+- `title`
+- `startDate`: `YYYY-MM-DD`
+- `endDate`: `YYYY-MM-DD` or `null`
+- `venue`
+- `location`
+- `description`
+- `url`: external event page or `null`
+
+## Future Google Drive Sync
+
+The planned automation will download originals from a Google Drive folder and
+read metadata from a Google Sheets CSV export in GitHub Actions. That workflow
+should normalize metadata to the contract above, run the image processor, run
+gallery validation, and commit or deploy the generated results. Google
+credentials, repository secrets, downloads, and CSV synchronization are not
+part of the current implementation.
+
+## Deployment
+
+Azure Static Web Apps builds `dist` from the `main` branch. The
+`public/staticwebapp.config.json` navigation fallback allows direct visits to
+client-side routes such as `/images/sunset-sail`.
