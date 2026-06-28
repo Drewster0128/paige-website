@@ -1,0 +1,53 @@
+name: Sync Artwork
+
+on: 
+  push:
+    branches:
+      - dev
+  schedule:
+    - cron: 0 0 * * *
+
+env:
+  SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+  KEYFILE: ${{ secrets.KEYFILE }}
+  SCOPES: ${{ secrets.SCOPES }}
+  WEBSITE_IMAGES_FOLDER_ID: ${{ secrets.WEBSITE_IMAGES_FOLDER_ID }}
+  ARTWORK_IMAGES_FOLDER_ID: ${{ secrets.ARTWORK_IMAGES_FOLDER_ID }}
+  SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create env folder
+        run: mkdir env
+
+      - name: Export secret to json
+        run: |
+          printf '%s' "$SERVICE_ACCOUNT" > env/paigewebsite-c02d0030e691.json
+          node -e "const fs=require('fs'); const j=JSON.parse(fs.readFileSync('env/paigewebsite-c02d0030e691.json','utf8')); console.log('type:', j.type); console.log('client_email:', j.client_email); console.log('has_private_key:', !!j.private_key); console.log('has_begin_key:', j.private_key?.includes('BEGIN PRIVATE KEY'));"
+
+      - name: sync-data
+        run: npm run sync
+
+      - name: commit updated metadata
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "Sync with google drive"
+          file_pattern: "public/img/full/* public/img/4x3/* src/data/pictures.json"
