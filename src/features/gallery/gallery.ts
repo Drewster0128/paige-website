@@ -4,7 +4,7 @@ import type {
   GalleryItemResolution,
   GalleryMediumDefinition,
   GalleryMediumSummary,
-} from "./types";
+} from "../../types";
 
 const galleryMediumDefinitions: GalleryMediumDefinition[] = [
   {
@@ -80,10 +80,15 @@ export function getGalleryMediums(
   const itemsByMedium = new Map<string, GalleryItem[]>();
 
   items.forEach((item) => {
-    const mediumItems = itemsByMedium.get(item.medium) ?? [];
-    mediumItems.push(item);
-    itemsByMedium.set(item.medium, mediumItems);
-  });
+    if(!itemsByMedium.has(item.medium))
+    {
+      itemsByMedium.set(item.medium, [item]);
+    }
+    else
+    {
+      itemsByMedium.get(item.medium)?.push(item);
+    }
+  })
 
   const definedMediumNames = new Set(
     galleryMediumDefinitions.map((medium) => medium.name),
