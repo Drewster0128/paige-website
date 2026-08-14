@@ -1,4 +1,4 @@
-export const GALLERY_IMAGE_ROOT = "/img";
+export const GALLERY_IMAGE_ROOT = "https://psychedelicqueenartistry.com/img";
 
 export const HERO_IMAGES = {
   about: "/img/about/hero.webp",

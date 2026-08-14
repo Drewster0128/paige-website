@@ -19,11 +19,10 @@ export async function getGalleryData()
                 originalSize: imageData["Original Size"].trim(),
                 printSizes: imageData["Print Sizes"].trim().split(","),
                 dateCreated: imageData["Date Created"].trim(),
-                genres: imageData["Genres"].trim().split(","),
                 medium: imageData["Medium"].trim(),
                 materal: null,
                 availability: imageData["Availability"].trim(),
-                altText: imageData["Alt Text"].trim(),
+                //altText: imageData["Alt Text"].trim(),
                 featured: false,
                 displayOrder: index,
                 provisional: false

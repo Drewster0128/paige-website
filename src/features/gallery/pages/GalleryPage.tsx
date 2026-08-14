@@ -103,6 +103,7 @@ export function GalleryPage({
         }
         else
         {
+          console.log(result.error);
           setStatus("error");
         }
       })
