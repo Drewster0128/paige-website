@@ -26,7 +26,8 @@
 
     "paths": {
       "@*": ["./*"],
-      "@types": ["./src/types"]
+      "@types": ["./src/types"],
+      "@api": ["./src/utils/apiService.ts"]
     }
   },
   "include": ["src"]

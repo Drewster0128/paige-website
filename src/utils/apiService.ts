@@ -35,5 +35,4 @@ export async function getGalleryData()
     {
         return err(error);
     }
-
 }
