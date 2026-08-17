@@ -1,6 +1,6 @@
-import eventData from "./data/events.json";
-import type { Event } from "./types";
+import type { Event } from "@types";
 
+/*
 const events = (eventData as Event[])
   .slice()
   .sort((first, second) => first.startDate.localeCompare(second.startDate));
@@ -8,6 +8,8 @@ const events = (eventData as Event[])
 export function getUpcomingEvents(): Event[] {
   return events.slice();
 }
+
+*/
 
 export function formatEventDate(event: Event): string {
   const startDate = new Date(`${event.startDate}T12:00:00`);

@@ -1,4 +1,4 @@
-import {type GalleryItem, ok, err} from "../types";
+import {type GalleryItem, ok, err, type Event } from "@types";
 
 
 export async function getGalleryData()
@@ -30,6 +30,33 @@ export async function getGalleryData()
         });
 
         return ok(galleryData);
+    }
+    catch(error : unknown)
+    {
+        return err(error);
+    }
+}
+
+export async function getEventData()
+{
+    try
+    {
+        const response = await fetch("https://psychedelicqueenartistry.com/events.json");
+        const json = await response.json();
+
+        const eventData : Event[] = json.map((e, index : number) => {
+            return {
+                id: index,
+                title: e["Title"],
+                startDate: e["Start Date"],
+                endDate: e["End Date"],
+                venue: e["Venue"],
+                location: e["Address"],
+                url: e["URL"]
+            };
+        });
+
+        return ok(eventData);
     }
     catch(error : unknown)
     {

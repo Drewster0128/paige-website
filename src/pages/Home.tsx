@@ -4,12 +4,11 @@ import {
   getGalleryMediumUrl,
   getThumbnailUrl
 } from "../features/gallery";
-import { getUpcomingEvents } from "../features/events";
 import { HERO_IMAGES } from "../config/assets";
 import { ROUTES } from "../config/routes";
 import { usePageMetadata } from "./usePageMetadata";
-import { getGalleryData } from "@api";
-import {type GalleryItem } from "@types";
+import { getEventData, getGalleryData } from "@api";
+import {type GalleryItem, type Event } from "@types";
 
 const HOME_PAGE_TITLE =
   "Psychedelic Queen Artistry | Paige Cook | Greater Chicago Artist";
@@ -68,6 +67,7 @@ export function Home({ className = "" }: { className?: string }) {
 
   //STATES
   const [galleryItems, setGalleryItems] = useState<GalleryItem[] | null>(null);
+  const [events, setEvents] = useState<Event[] | null>(null);
   const [status, setStatus] = useState<string>("loading");
 
   //DERIVED STATES
@@ -94,8 +94,6 @@ export function Home({ className = "" }: { className?: string }) {
   ).filter((item): item is GalleryItem => item !== undefined)
   : []
 
-  const events = getUpcomingEvents();
-
   //EFFECTS
   useEffect(() => {
     getGalleryData()
@@ -103,7 +101,19 @@ export function Home({ className = "" }: { className?: string }) {
         if(result.ok)
         {
           setGalleryItems(result.value);
-          setStatus("success");
+          getEventData()
+            .then((result) => {
+              if(result.ok)
+              {
+                setEvents(result.value)
+                setStatus("success");
+              }
+              else
+              {
+                console.log(result.error);
+                setStatus("error");
+              }
+            })
         }
         else
         {
@@ -241,14 +251,14 @@ export function Home({ className = "" }: { className?: string }) {
               </h2>
             </div>
             <div className="flex flex-col justify-between gap-12 border-t border-[var(--charcoal)] pt-6 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
-              {events.length > 0 ? (
+              {events!.length > 0 ? (
                 <div>
                   <p className="text-sm uppercase tracking-[0.2em] text-[var(--charcoal)]/70">
                     Next appearance
                   </p>
-                  <p className="mt-3 font-serif text-3xl">{events[0].title}</p>
+                  <p className="mt-3 font-serif text-3xl">{events![0].title}</p>
                   <p className="mt-2 text-[var(--charcoal)]/75">
-                    {events[0].venue} - {events[0].location}
+                    {events![0].venue} - {events![0].location}
                   </p>
                 </div>
               ) : (
