@@ -17,7 +17,7 @@ export function ArtworkModal({
     { label: "Original size", value: item.originalSize },
     {
       label: "Print sizes",
-      value: item.printSizes.length > 0 ? item.printSizes.join(", ") : null,
+      value: item.printSizes ? item.printSizes.join(", ") : null,
     },
     { label: "Date created", value: item.dateCreated },
     { label: "Medium", value: item.medium },
