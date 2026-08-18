@@ -1,3 +1,4 @@
+/*
 export type Success<T> = {
     ok: true;
     value: T
@@ -25,3 +26,8 @@ export function err<E>(error: E) : Result<never, E>
         error: error
     };
 }
+*/
+
+export type Result<T, E = unknown> = 
+    | {ok: true; value: T}
+    | {ok: false; error: E};

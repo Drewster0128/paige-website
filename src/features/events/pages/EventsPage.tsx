@@ -6,7 +6,7 @@ import { GENERAL_CONTACT_EMAIL } from "../../../config/site";
 import { usePageMetadata } from "../../../pages/usePageMetadata";
 import { EventCard } from "../components/EventCard";
 import { getEventData } from "@api";
-import {type Event} from "@types";
+import {type Event, type Result} from "@types";
 
 const EVENTS_PAGE_TITLE =
   "Events | Paige Cook Art Markets and Exhibitions | Psychedelic Queen Artistry";
@@ -35,19 +35,25 @@ export function EventsPage(): React.JSX.Element {
   // EFFECTS
 
   useEffect(() => {
-    getEventData()
-      .then((result) => {
-        if(result.ok)
-        {
+
+    async function loadData()
+    {
+      const result : Result<Event[]> = await getEventData();
+
+      switch (result.ok)
+      {
+        case true:
           setEvents(result.value);
           setStatus("success");
-        }
-        else
-        {
-          console.log(result.error);
+          break;
+        default:
+          console.log(result.error)
           setStatus("error");
-        }
-      })
+          break;
+      }
+    }
+
+    loadData();
   }, []);
 
   if(status === "loading")

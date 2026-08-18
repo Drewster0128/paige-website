@@ -23,4 +23,4 @@ export type {
   GalleryItemResolution,
   GalleryMediumDefinition,
   GalleryMediumSummary,
-} from "./types";
+} from "@types";

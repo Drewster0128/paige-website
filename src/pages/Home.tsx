@@ -98,27 +98,28 @@ export function Home({ className = "" }: { className?: string }) {
   useEffect(() => {
     getGalleryData()
       .then((result) => {
-        if(result.ok)
+        switch(result.ok)
         {
-          setGalleryItems(result.value);
-          getEventData()
-            .then((result) => {
-              if(result.ok)
-              {
-                setEvents(result.value)
-                setStatus("success");
-              }
-              else
-              {
-                console.log(result.error);
-                setStatus("error");
-              }
-            })
-        }
-        else
-        {
-          console.log(result.error);
-          setStatus("error");
+          case true:
+            setGalleryItems(result.value);
+            getEventData()
+              .then((result) => {
+                switch(result.ok)
+                {
+                  case true:
+                    setEvents(result.value);
+                    setStatus("success");
+                    break;
+                  default:
+                    console.log(result.error);
+                    setStatus("error");
+                    break;
+                }
+              })
+            break;
+          default:
+            console.log(result.error)
+            setStatus("error");
         }
       })
   }, []);

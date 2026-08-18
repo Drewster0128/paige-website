@@ -1,4 +1,4 @@
-import {type GalleryItem, ok, err, type Event } from "@types";
+import {type GalleryItem, type Event, type Result } from "@types";
 
 
 export async function getGalleryData()
@@ -29,15 +29,23 @@ export async function getGalleryData()
             };
         });
 
-        return ok(galleryData);
+        const ret : Result<GalleryItem[]> = {
+            ok: true,
+            value: galleryData
+        }
+        return ret;
     }
     catch(error : unknown)
     {
-        return err(error);
+        const ret : Result<GalleryItem[]> = {
+            ok: false,
+            error: error
+        }
+        return ret;
     }
 }
 
-export async function getEventData()
+export async function getEventData() : Promise<Result<Event[]>>
 {
     try
     {
@@ -56,10 +64,20 @@ export async function getEventData()
             };
         });
 
-        return ok(eventData);
+        const ret : Result<Event[]> = {
+            ok: true,
+            value: eventData
+        };
+
+        return ret;
     }
     catch(error : unknown)
     {
-        return err(error);
+        const ret : Result<Event[]> = {
+            ok: false,
+            error: error
+        };
+
+        return ret;
     }
 }

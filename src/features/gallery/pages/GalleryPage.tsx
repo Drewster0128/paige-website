@@ -96,15 +96,16 @@ export function GalleryPage({
   useEffect(() => {
     getGalleryData()
       .then((result) => {
-        if(result.ok)
+        switch(result.ok)
         {
-          setItems(result.value);
-          setStatus("success");
-        }
-        else
-        {
-          console.log(result.error);
-          setStatus("error");
+          case true:
+            setItems(result.value);
+            setStatus("success");
+            break;
+          default:
+            console.log(result.error);
+            setStatus("error");
+            break;
         }
       })
   }, []);
