@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { NavLink } from "react-router";
 import { getFullImageUrl } from "../paths";
-import type { GalleryItem } from "../types";
+import type { GalleryItem } from "@types";
 
 export function ArtworkModal({
   item,
@@ -17,12 +17,11 @@ export function ArtworkModal({
     { label: "Original size", value: item.originalSize },
     {
       label: "Print sizes",
-      value: item.printSizes.length > 0 ? item.printSizes.join(", ") : null,
+      value: item.printSizes ? item.printSizes.join(", ") : null,
     },
     { label: "Date created", value: item.dateCreated },
     { label: "Medium", value: item.medium },
     { label: "Material", value: item.material },
-    { label: "Genres", value: item.genres.join(", ") },
   ].filter((row): row is { label: string; value: string } =>
     Boolean(row.value),
   );

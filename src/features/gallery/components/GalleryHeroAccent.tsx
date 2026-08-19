@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { getThumbnailUrl } from "../paths";
-import type { GalleryItem } from "../types";
+import type { GalleryItem } from "@types";
 
 const HERO_ACCENT_PARALLAX_DEPTHS = [
   0.7, 1.05, 0.85, 1.15, 0.75, 1.25, 0.9, 1.1, 0.8, 1.2, 0.95, 1,

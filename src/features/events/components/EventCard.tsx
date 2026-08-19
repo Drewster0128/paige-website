@@ -1,5 +1,5 @@
 import { formatEventDate } from "../events";
-import type { Event } from "../types";
+import type { Event } from "@types";
 
 export function EventCard({ event }: { event: Event }): React.JSX.Element {
   return (

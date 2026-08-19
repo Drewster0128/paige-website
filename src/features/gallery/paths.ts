@@ -1,4 +1,4 @@
-import type { GalleryItem } from "./types";
+import type { GalleryItem } from "@types";
 import { slugifyMedium } from "./gallery";
 import { GALLERY_IMAGE_ROOT } from "../../config/assets";
 import { ROUTES } from "../../config/routes";

@@ -15,6 +15,8 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "src"),
       "@css": path.resolve(__dirname, "src/assets/css"),
+      "@types": path.resolve(__dirname, "src/types"),
+      "@api": path.resolve(__dirname, "src/utils/apiService.ts")
     },
   },
 });

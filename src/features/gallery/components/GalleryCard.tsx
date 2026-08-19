@@ -1,5 +1,5 @@
 import { getThumbnailUrl } from "../paths";
-import type { GalleryItem } from "../types";
+import type { GalleryItem } from "@types";
 
 export function GalleryCard({
   item,

@@ -9,7 +9,7 @@ const CONTACT_PAGE_TITLE =
 const CONTACT_PAGE_DESCRIPTION =
   "Contact Paige Cook about original artwork, prints, and custom art commissions through Psychedelic Queen Artistry.";
 const TALLY_EMBED_URL =
-  "https://tally.so/embed/MePNX0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
+  "https://tally.so/embed/VLWoGN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
 
 export function Contact(): React.JSX.Element {
   const [searchParams] = useSearchParams();
@@ -83,14 +83,6 @@ export function Contact(): React.JSX.Element {
             <h2 className="max-w-xl font-serif text-[clamp(3rem,6vw,6.5rem)] leading-[0.9]">
               Make the first message count.
             </h2>
-            <div className="mt-8 overflow-hidden border border-[var(--brand-primary)]/35 bg-[var(--cream)]">
-              <img
-                alt="Paige Cook reviewing colorful artwork and prints in her studio"
-                className="aspect-16/9 w-full object-cover"
-                loading="lazy"
-                src={HERO_IMAGES.contact}
-              />
-            </div>
           </div>
 
           <div className="flex flex-col gap-8 border-t border-[var(--charcoal)] pt-6">

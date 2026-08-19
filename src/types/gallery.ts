@@ -6,7 +6,7 @@ export interface GalleryItem {
   description: string;
   price: string | null;
   originalSize: string | null;
-  printSizes: string[];
+  printSizes: string[] | null;
   dateCreated: string | null;
   genres: string[];
   medium: string;

@@ -1,8 +1,8 @@
-export const GALLERY_IMAGE_ROOT = "/img";
+export const GALLERY_IMAGE_ROOT = "https://psychedelicqueenartistry.com/img";
 
 export const HERO_IMAGES = {
-  about: "/img/about/hero.webp",
+  about: "/img/about/newhero.webp",
   contact: "/img/contact/hero.webp",
-  events: "/img/events/hero.webp",
-  home: "/img/home/hero.webp",
+  events: "/img/events/newhero.webp",
+  home: "/img/home/newhero.webp",
 } as const;
